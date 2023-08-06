@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+{% load i18n %}
+<html lang="en">
+<head>
+<title>Can Benli | {% trans "Industrial Engineer | Data Scientist"%}</title>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Can Benli, Digitization, data analysis, web programming, frontend, Html, Css, Javascript, Seo, Industrial Engineering, Dijitalleştirme, veri analizi, web programlama, önyüz, Html, Css, Javascript, Seo, Endüstri Mühendisliği" name="keywords">
+<meta content="Ambitious and motivated young industrial engineering student with a qualified knowledge and passion to learn more about engineering." name="description">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<link rel="icon" href="/media/img/icon_logo.png">
+
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
+
+<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/static/css/owl.carousel.min.css" />
+<link rel="stylesheet" href="/static/css/animate.css" />
+
+<link rel="stylesheet" href="/static/css/style.css" />
+
+<script src="https://kit.fontawesome.com/20583e3abd.js" crossorigin="anonymous"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XLNELQC0VC');
+</script>
+
+</head>
+<body>
+
+<div id="preloder">
+<div class="loader"></div>
+</div>
+
+<div class="spacial-controls">
+<div class="search-switch"><img src="/media/img/search-icon.png"></div>
+<div class="nav-switch-warp">
+<div class="nav-switch">
+<div class="ns-bar"></div>
+</div>
+</div>
+</div>
+
+<div class="main-warp">
+
+  <header class="header-section">
+    <div class="header-close">
+    <i class="fa fa-times"></i>
+    </div>
+    <div class="header-warp">
+    <a href="/{{request.LANGUAGE_CODE}}" class="site-logo">
+    <img src="/media/img/logo.png" alt="logo">
+    </a>
+    <img src="/media/img/menu-icon.png" alt="" class="menu-icon">
+    <ul class="main-menu">
+    <li><a href="/{{request.LANGUAGE_CODE}}">{% trans "Home"%}</a></li>
+    <li class="active"><a href="/{{request.LANGUAGE_CODE}}/blog">{% trans "Blog"%}</a></li>
+    <li><a href="/{{request.LANGUAGE_CODE}}/contact">{% trans "Contact"%}</a></li>
+    <li><a href="{% url 'set-language' 'tr' %}"><img src="/media/img/tr.png" alt="tr" width="20px"></a><a href="{% url 'set-language' 'en' %}" style="padding-left:5px"><img src="/media/img/en.png" alt="en" width="20px"></a></li>
+    
+    </ul>
+    <div class="social-links-warp">
+    <div class="social-links">
+        <a href="https://www.kaggle.com/canbenli"><i class="fa-brands fa-kaggle"></i></a>
+        <a href="https://www.linkedin.com/in/can-benli/"><i class="fa-brands fa-linkedin"></i></a>
+        <a href=""><i class="fa fa-twitter"></i></a>
+        <a href="https://github.com/canbenli"><i class="fa-brands fa-github"></i></a>
+    </div>
+    <div class="social-text">{% trans "Socials"%}</div>
+    </div>
+    </div>
+    <div class="copyright">
+    Can Benli &copy; 2023
+    </div>
+    </header>
+<br><br><br>
+<div class="page-section ">
+
+  <div class="div-absolute" style="z-index:999">
+    <button id="shareButton" class="btn" style><i class="fa-solid fa-share-from-square"></i></button>
+      <div id="shareOptions">
+        <a href="#" id="copyLink"><i class="fa-solid fa-copy"></i></a>
+      </div>
+      <div id="copyMessage">Copied <i class="fa-solid fa-check"></i></div>
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://canbenli.com/tr/articles/{{post11.slug}}&title={{post11.title}}&source={{pos11.image.url}}" target="_blank"><button class="btn"><i class="fa-brands fa-linkedin"></i></button></a>
+    <a href="https://twitter.com/intent/tweet?text={{post11.title}} isimli yazıyı okumak için https://canbenli.com/tr/articles/{{post11.slug}} sayfasını ziyaret edebilirsiniz." target="_blank"><button class="btn"><i class="fa-brands fa-square-twitter"></i></button></a>
+  </div>
+
+  <div class="blog-warps">
+    <div class="blog-track">
+        <div class="blog-post">
+          <div class="blog-thumb set-bg" data-setbg="{{post11.image.url}}"> 
+            <div class="  hidden-date">
+              <h3>{{post11.publishing_date.day}}</h3>
+                <span>{{post11.publishing_date.month}}, {{post11.publishing_date.year}}</span>
+            </div>
+          </div>
+          <h2 class="post-title">{{post11.title}}</h2>
+          <div class="post-metas">
+            <div class="post-meta">Can Benli</div>|
+            <div class="post-meta">{{post11.category.name}}</div>|
+            <div class="post-meta">{{post11.publishing_date.day}}.{{post11.publishing_date.month}}.{{post11.publishing_date.year}}</div>
+          </div>
+          <p>
+            {{post11.body|safe}}
+          </p>
+        </div>
+        
+    </div>
+
+
+    
+  
+
+
+
+
+
+
+    <button class="toggle-button toggle-button2">{% trans "Comment"%}<i class="bi bi-reply" style="font-size: 20px;"></i></button>
+    <div class="toggle-container bg-white  border-top-0 p-4">
+        <form method="POST">                  
+          {% csrf_token %}
+
+            <div class="form-row">
+                
+                    <div class="form-group">
+                        <input required value = "{{name1}}" name="name" type="text" class="form-control" placeholder="{% trans "Name"%}">
+                    </div>
+                  
+               
+            </div>
+            <div class="form-group">
+                <textarea required name="message" cols="30" rows="3" class="form-control" placeholder="{% trans "Comment"%}">{{message1}}</textarea>
+            </div>
+            <div class="form-group mb-0">
+                <input type="submit" value="{% trans "SEND"%}" class="btn btn-primary font-weight-semi-bold py-2 px-3 adad">
+            </div><br><br>
+            <div class="g-recaptcha" data-sitekey="6Ldp3UUlAAAAAPO6a36dTls-vas7dbBguXbVUk2X"></div>
+                  <div style = "color:red;">
+                    {% if error %}
+                        {% trans "Confirm that you are not a robot!"%}
+                    {% endif %}
+                  </div>
+        </form>
+    </div>
+  
+    <div class="comment-boxes">
+    {%for parent in parent %}
+
+      <div class="comments">
+        <div class="comments-alt">
+          <span class="spans">{{parent.name}} </span> <span class="spansa"> {{parent.created_date}}</span> <br>
+          {{parent.content|linebreaks}}
+        </div>
+        <button class="toggle-button" style="padding-left: 27px;"><i class="fa-solid fa-reply"></i></i></button>
+        <div class="toggle-container bg-white  border-top-0 p-4">
+          <form method="POST" class="margin-top:30px">
+            {% csrf_token %}
+            <div class="form-row">
+                
+                    <div class="form-group">
+                        <input id="name" name="parent_id" value = {{parent.pk}} class="form-control" type="hidden" placeholder="{{parent.name}}">
+                        <input required value = "{{name2}}" name="name_reply" class="form-control" type="text" placeholder="{% trans "Name"%}">
+                    </div>
+                   
+               
+            </div>
+            <div class="form-group">
+                <textarea id="message" required name="message_reply" cols="30" rows="3" class="form-control" placeholder="{% trans "Reply to"%} {{parent.name}}">{{message2}}</textarea>
+            </div>
+            <div class="form-group mb-0">
+                <input type="submit" value="{% trans "REPLY"%}" class="btn btn-primary font-weight-semi-bold py-2 px-3 ">
+            </div>
+            
+            <div class="g-recaptcha" data-sitekey="6Ldp3UUlAAAAAPO6a36dTls-vas7dbBguXbVUk2X"></div>
+                        <div style = "color:red;">
+                          {% if error2 %}
+                              {% trans "Confirm that you are not a robot!"%}
+                          {% endif %}
+                        </div>
+        </form>
+        </div>
+      </div>
+          {%for alt_comm in parent.replies.all %}
+          <div class="comments comments2">
+            <div class="comments-alt">
+              <span class="spans">{{alt_comm.name}}</span> replied to <span class="spans">{{parent.name}}</span> {{alt_comm.created_date}} <br>
+              {{alt_comm.content|linebreaks}}
+            </div>
+          </div>
+          
+          {%endfor%}
+    {% endfor %}
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="search-model">
+  <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="search-close-switch">x</div>
+          <form class="search-moderl-form">
+          {% csrf_token %}
+          <input name = "q2" type="text" id="search-input" placeholder="{% trans "Search" %}"><button type="submit"></button>
+          </form>
+      </div>
+  </div>
+
+
+  <script src="/static/js/jquery-3.2.1.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/owl.carousel.min.js"></script>
+  <script src="/static/js/jquery.nicescroll.min.js"></script>
+  <script src="/static/js/isotope.pkgd.min.js"></script>
+  <script src="/static/js/imagesloaded.pkgd.min.js"></script>
+  <script src="/static/js/circle-progress.min.js"></script>
+  <script src="/static/js/main.js"></script>
+
+</body>
+</html>
+
+
+<script>
+  // Butonlara tıklandığında ilgili div'i aç/kapat
+document.querySelectorAll('.toggle-button').forEach(button => {
+  const targetDiv = button.nextElementSibling;
+
+  button.addEventListener('click', () => {
+    // Hedef div'i aç/kapat
+    if (targetDiv.classList.contains('active')) {
+      targetDiv.classList.remove('active');
+      targetDiv.style.height = 0;
+    } else {
+      targetDiv.classList.add('active');
+      targetDiv.style.height = targetDiv.scrollHeight + 'px';
+    }
+  });
+});
+
+</script>
+
+
+<script>
+  const shareButton = document.getElementById('shareButton');
+  const shareOptions = document.getElementById('shareOptions');
+  const copyLink = document.getElementById('copyLink');
+  const copyMessage = document.getElementById('copyMessage');
+
+  shareButton.addEventListener('click', function () {
+      shareOptions.classList.toggle('show');
+  });
+
+  copyLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      const linkToCopy = window.location.href;
+      copyToClipboard(linkToCopy);
+      showCopyMessage();
+  });
+
+  function copyToClipboard(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+  }
+
+  function showCopyMessage() {
+      copyMessage.style.display = 'block';
+      setTimeout(function () {
+          copyMessage.style.display = 'none';
+      }, 2000);
+  }
+</script>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load i18n %}
+<html lang="en">
+<head>
+<title>Can Benli | {% trans "Industrial Engineer | Data Scientist"%}</title>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Can Benli, Digitization, data analysis, web programming, frontend, Html, Css, Javascript, Seo, Industrial Engineering, Dijitalleştirme, veri analizi, web programlama, önyüz, Html, Css, Javascript, Seo, Endüstri Mühendisliği" name="keywords">
+<meta content="Ambitious and motivated young industrial engineering student with a qualified knowledge and passion to learn more about engineering." name="description">
+
+<link rel="icon" href="/media/img/icon_logo.png">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
+
+<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/static/css/owl.carousel.min.css" />
+<link rel="stylesheet" href="/static/css/animate.css" />
+
+<link rel="stylesheet" href="/static/css/style.css" />
+
+<script src="https://kit.fontawesome.com/20583e3abd.js" crossorigin="anonymous"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XLNELQC0VC');
+</script>
+
+</head>
+<body>
+
+<div id="preloder">
+<div class="loader"></div>
+</div>
+
+<div class="spacial-controls">
+<div class="search-switch"><img src="/media/img/search-icon.png" alt=""></div>
+<div class="nav-switch-warp">
+<div class="nav-switch">
+<div class="ns-bar"></div>
+</div>
+</div>
+</div>
+
+<div class="main-warp">
+
+
+  <header class="header-section">
+    <div class="header-close">
+    <i class="fa fa-times"></i>
+    </div>
+    <div class="header-warp">
+    <a href="/{{request.LANGUAGE_CODE}}" class="site-logo">
+    <img src="/media/img/logo.png" alt="logo">
+    </a>
+    <img src="/media/img/menu-icon.png" alt="" class="menu-icon">
+    <ul class="main-menu">
+    <li><a href="/{{request.LANGUAGE_CODE}}">{% trans "Home"%}</a></li>
+    <li><a href="/{{request.LANGUAGE_CODE}}/blog">{% trans "Blog"%}</a></li>
+    <li class="active"><a href="/{{request.LANGUAGE_CODE}}/contact">{% trans "Contact"%}</a></li>
+    <li><a href="{% url 'set-language' 'tr' %}"><img src="/media/img/tr.png" alt="tr" width="20px"></a><a href="{% url 'set-language' 'en' %}" style="padding-left:5px"><img src="/media/img/en.png" alt="en" width="20px"></a></li>
+    
+    </ul>
+    <div class="social-links-warp">
+    <div class="social-links">
+        <a href="https://www.kaggle.com/canbenli"><i class="fa-brands fa-kaggle"></i></a>
+        <a href="https://www.linkedin.com/in/can-benli/"><i class="fa-brands fa-linkedin"></i></a>
+        <a href=""><i class="fa fa-twitter"></i></a>
+        <a href="https://github.com/canbenli"><i class="fa-brands fa-github"></i></a>
+    </div>
+    <div class="social-text">{% trans "Socials"%}</div>
+    </div>
+    </div>
+    <div class="copyright">
+    Can Benli &copy; 2023
+    </div>
+    </header>
+
+<div class="page-section contact-page">
+<div class="contact-warp">
+<div class="row">
+<div class="col-xl-6 p-0">
+<div class="contact-text">
+<span>{% trans "Get in touch"%}</span>
+<h3>{% trans "Contact via the form social media accounts or e-mail for business proposals, project ideas and collaboration."%}</h3><br><br>
+<form method="POST" class="contact-form">
+  {% csrf_token %}
+<input required value="{{name1}}" name="name" type="text" id="name" required placeholder="{% trans "Name"%}">
+<input required value = "{{mail1}}" name="email" type="email" id="email" placeholder="E-mail">
+<input required value="{{number1}}" name="phone" type="tel" id="tel" placeholder="{% trans "Phone"%}">
+
+<textarea required name="message" id="message" placeholder="{% trans "Message"%}">{{comment1}}</textarea>
+<button type="submit" class="site-btn">{% trans "SEND"%}</button> <br><br>
+<div class="g-recaptcha" data-sitekey="6Ldp3UUlAAAAAPO6a36dTls-vas7dbBguXbVUk2X"></div>
+                <div style = "color:red;">
+                  {% if error %}
+                      {% trans "Confirm that you are not a robot!"%}
+                  {% endif %}
+                </div> 
+</form>
+<div class="contac-info">
+<p>Ankara, Turkey</p>
+<p><a href="mailto:canbenlibusiness@gmail.com" style="color:#000">canbenlibusiness@gmail.com</a></p><br><br><br>
+</div>
+</div>
+</div>
+
+<div class="col-xl-6 p-0">
+<!--<div class="map-warp"><h3>Contact via the form social media accounts or e-mail for business proposals, project ideas and collaboration.</h3></div>-->
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="search-model">
+  <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="search-close-switch">x</div>
+          <form class="search-moderl-form">
+          {% csrf_token %}
+          <input type="text" name = "q2" id="search-input" placeholder="{% trans "Search" %}"><button type="submit"></button>
+          </form>
+      </div>
+  </div>
+
+
+  <script src="/static/js/jquery-3.2.1.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/owl.carousel.min.js"></script>
+  <script src="/static/js/jquery.nicescroll.min.js"></script>
+  <script src="/static/js/isotope.pkgd.min.js"></script>
+  <script src="/static/js/imagesloaded.pkgd.min.js"></script>
+  <script src="/static/js/circle-progress.min.js"></script>
+  <script src="/static/js/main.js"></script>  
+</body>
+</html>
