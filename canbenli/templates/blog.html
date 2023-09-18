@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="Can Benli, Digitization, data analysis, web programming, frontend, Html, Css, Javascript, Seo, Industrial Engineering, Dijitalleştirme, veri analizi, web programlama, önyüz, Html, Css, Javascript, Seo, Endüstri Mühendisliği" name="keywords">
-<meta content="Can Benli. Ambitious and motivated young industrial engineering student with a qualified knowledge and passion to learn more about engineering." name="description">
-
+<meta content="Ambitious and motivated young industrial engineering student with a qualified knowledge and passion to learn more about engineering." name="description">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <link rel="icon" href="/media/img/icon_logo.png">
 
 <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
@@ -16,7 +16,9 @@
 <link rel="stylesheet" href="/static/css/font-awesome.min.css" />
 <link rel="stylesheet" href="/static/css/owl.carousel.min.css" />
 <link rel="stylesheet" href="/static/css/animate.css" />
+
 <link rel="stylesheet" href="/static/css/style.css" />
+
 <script src="https://kit.fontawesome.com/20583e3abd.js" crossorigin="anonymous"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -34,7 +36,7 @@
 </div>
 
 <div class="spacial-controls">
-<div class="search-switch"><img src="/media/img/search-icon.png" alt=""></div>
+<div class="search-switch"><img src="/media/img/search-icon.png"></div>
 <div class="nav-switch-warp">
 <div class="nav-switch">
 <div class="ns-bar"></div>
@@ -74,105 +76,164 @@
     Can Benli &copy; 2023
     </div>
     </header>
-    
+<br><br><br>
+<div class="page-section ">
 
-    <div class="page-section blog-page"><br><br><br>
-      <div class="categories">
-        {% for cat in tags %}
-        <a href="/{{request.LANGUAGE_CODE}}/blog?q={{cat.name}}">{{cat.name}}</a>
-        {% endfor %}
-      </div>
-      <div class="filtering">
-        {% if temizle %}
-              <a href="/{{request.LANGUAGE_CODE}}/blog"><p style="text-align:center;">{% trans "Show all posts"%}</p></a>
-              {% endif %}
-              {%if request.GET.q%}
-                  <p style="text-align:center;"><strong> {{filter_count}} </strong>{% trans "post related to "%} <strong>{{request.GET.q}}</strong>{% trans " were found"%}  </p>
-              {% endif %}
-              {%if request.GET.search%}
-                  <p style="text-align:center;"><strong> {{filter_count}} </strong>{% trans "post related to "%}<strong>{{request.GET.search}}</strong> {% trans " were found"%}</p>
-              {% endif %}
-      </div>
-      <div class="blog-warp">
-        <div class="blog-track" style="display:flex; flex-wrap:wrap; justify-content: space-between;">
-          {% for post in posts %}
-          <div class="blog-post blog-post-70 blog-post-half">
-            <div class="blog-thumb set-bg" data-setbg="{{post.image.url}}">
-              <div class="post-date">
-                <h3>{{post.publishing_date.day}}</h3>
-                <span>{{post.publishing_date.month}}, {{post.publishing_date.year}}</span>
-              </div>
-            </div>
-                <h2 class="post-title"><a href="{% url 'blog_single' post.slug %}" style="color:#000">{{post.title}}</a></h2>
-            <div class="post-metas">
-                <div class="post-meta">Can Benli</div>|
-                <div class="post-meta"><a href="/{{request.LANGUAGE_CODE}}/articles?q={{cat.name}}">{{post.category.name}}</a></div>|
-                <div class="post-meta">{{post.publishing_date.day}}.{{post.publishing_date.month}}.{{post.publishing_date.year}}</div>
-              </div>
-              <p>{{post.summary}}</p>
-          </div>
-          {% endfor %}
-            
-            
-        </div>
-      </div>
-      <section class="pagination">
-          {% if page.has_previous %}
-         <a href="?page={{ page.previous_page_number }}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">
-            <i class="fa-solid fa-angle-left"></i>
-           </a>
-          {% else %}
-          <a><i class="fa-solid fa-angle-left"></i></a>  
-          {% endif %}
-          {% if first %}
-            <a href="?page=1{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">1</a>
-          {% endif %}
-          {% if three_dot %}
-            <a>...</a>
-          {% endif %}
-          {% if page.has_previous %}
-            <a href="?page={{ page.previous_page_number }}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ page.previous_page_number }}</a>
-          {% endif %}
-            <a>{{page.number}}</a>
-          {% if page.has_next %}
-             <a href="?page={{ page.next_page_number }}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ page.next_page_number }}</a>
-          {% endif %}
-          {% if last_three %}
-            <a>...</a>
-            
-          {% endif %}
-          {% if last %}
-             <a href="?page={{page.paginator.num_pages}}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{page.paginator.num_pages}}</a>
-          {% endif %}
-          {% if page.has_next %}
-          <a href="?page={{ page.next_page_number }}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">
-            <i class="fa-solid fa-angle-right"></i>
-             </a>
-          {% else %}
-          <a><i class="fa-solid fa-angle-right"></i></a>
-          {% endif %}
-        
-      </section> <br><br><br><br>
+  
+  <div class="blog-warps">
+    <div class="categories">
+      {% for cat in tags %}
+      <a href="/{{request.LANGUAGE_CODE}}/blog?q={{cat.name}}">{{cat.name}}</a>
+      {% endfor %}
     </div>
-
-  <div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-    <div class="search-close-switch">x</div>
-    <form class="search-moderl-form">
-      {% csrf_token %}
-      <input type="text" name="q2" id="search-input" placeholder="{% trans "Search" %}"><button type="submit"></button>
-      </form>
+    <div class="filtering">
+      {% if temizle %}
+            <a href="/{{request.LANGUAGE_CODE}}/blog"><p style="text-align:center;">{% trans "Show all posts"%}</p></a>
+            {% endif %}
+            {%if request.GET.q%}
+                <p style="text-align:center;"><strong> {{filter_count}} </strong>{% trans "post related to "%} <strong>{{request.GET.q}}</strong>{% trans " were found"%}  </p>
+            {% endif %}
+            {%if request.GET.search%}
+                <p style="text-align:center;"><strong> {{filter_count}} </strong>{% trans "post related to "%}<strong>{{request.GET.search}}</strong> {% trans " were found"%}</p>
+            {% endif %}
+    </div>
+    <div class="blog-track" style="display:flex; flex-wrap:wrap; justify-content: space-between;">
+      {% for post in posts %}
+      <div class="blog-post blog-post-70 blog-post-half">
+        <div class="blog-thumb set-bg" data-setbg="{{post.image.url}}">
+          <div class="post-date">
+            <h3>{{post.publishing_date.day}}</h3>
+            <span>{{post.publishing_date.month}}, {{post.publishing_date.year}}</span>
+          </div>
+        </div>
+            <h2 class="post-title"><a href="{% url 'blog_single' post.slug %}" style="color:#000">{{post.title}}</a></h2>
+        <div class="post-metas">
+            <div class="post-meta">Can Benli</div>|
+            <div class="post-meta"><a href="/{{request.LANGUAGE_CODE}}/articles?q={{cat.name}}">{{post.category.name}}</a></div>|
+            <div class="post-meta">{{post.publishing_date.day}}.{{post.publishing_date.month}}.{{post.publishing_date.year}}</div>
+          </div>
+          <p>{{post.summary}}</p>
+      </div>
+      {% endfor %}
+        
+    </div>
+   
+    <section class="pagination">
+      {% if page.has_previous %}
+     <a href="?page={{ page.previous_page_number }}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">
+        <i class="fa-solid fa-angle-left"></i>
+       </a>
+      {% else %}
+      <a><i class="fa-solid fa-angle-left"></i></a>  
+      {% endif %}
+      {% if first %}
+        <a href="?page=1{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">1</a>
+      {% endif %}
+      {% if three_dot %}
+        <a>...</a>
+      {% endif %}
+      {% if page.has_previous %}
+        <a href="?page={{ page.previous_page_number }}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ page.previous_page_number }}</a>
+      {% endif %}
+        <a>{{page.number}}</a>
+      {% if page.has_next %}
+         <a href="?page={{ page.next_page_number }}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ page.next_page_number }}</a>
+      {% endif %}
+      {% if last_three %}
+        <a>...</a>
+        
+      {% endif %}
+      {% if last %}
+         <a href="?page={{page.paginator.num_pages}}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{page.paginator.num_pages}}</a>
+      {% endif %}
+      {% if page.has_next %}
+      <a href="?page={{ page.next_page_number }}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">
+        <i class="fa-solid fa-angle-right"></i>
+         </a>
+      {% else %}
+      <a><i class="fa-solid fa-angle-right"></i></a>
+      {% endif %}
+    
+  </section> <br><br><br><br>
   </div>
 </div>
 
-<script src="/static/js/jquery-3.2.1.min.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/owl.carousel.min.js"></script>
-<script src="/static/js/jquery.nicescroll.min.js"></script>
-<script src="/static/js/isotope.pkgd.min.js"></script>
-<script src="/static/js/imagesloaded.pkgd.min.js"></script>
-<script src="/static/js/circle-progress.min.js"></script>
-<script src="/static/js/main.js"></script>
+</div>
+
+<div class="search-model">
+  <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="search-close-switch">x</div>
+          <form class="search-moderl-form">
+          {% csrf_token %}
+          <input name = "q2" type="text" id="search-input" placeholder="{% trans "Search" %}"><button type="submit"></button>
+          </form>
+      </div>
+  </div>
+
+
+  <script src="/static/js/jquery-3.2.1.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/owl.carousel.min.js"></script>
+  <script src="/static/js/jquery.nicescroll.min.js"></script>
+  <script src="/static/js/isotope.pkgd.min.js"></script>
+  <script src="/static/js/imagesloaded.pkgd.min.js"></script>
+  <script src="/static/js/circle-progress.min.js"></script>
+  <script src="/static/js/main.js"></script>
 
 </body>
 </html>
+
+
+<script>
+  // Butonlara tıklandığında ilgili div'i aç/kapat
+document.querySelectorAll('.toggle-button').forEach(button => {
+  const targetDiv = button.nextElementSibling;
+
+  button.addEventListener('click', () => {
+    // Hedef div'i aç/kapat
+    if (targetDiv.classList.contains('active')) {
+      targetDiv.classList.remove('active');
+      targetDiv.style.height = 0;
+    } else {
+      targetDiv.classList.add('active');
+      targetDiv.style.height = targetDiv.scrollHeight + 'px';
+    }
+  });
+});
+
+</script>
+
+
+<script>
+  const shareButton = document.getElementById('shareButton');
+  const shareOptions = document.getElementById('shareOptions');
+  const copyLink = document.getElementById('copyLink');
+  const copyMessage = document.getElementById('copyMessage');
+
+  shareButton.addEventListener('click', function () {
+      shareOptions.classList.toggle('show');
+  });
+
+  copyLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      const linkToCopy = window.location.href;
+      copyToClipboard(linkToCopy);
+      showCopyMessage();
+  });
+
+  function copyToClipboard(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+  }
+
+  function showCopyMessage() {
+      copyMessage.style.display = 'block';
+      setTimeout(function () {
+          copyMessage.style.display = 'none';
+      }, 2000);
+  }
+</script>
