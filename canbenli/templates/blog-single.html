@@ -1,281 +1,412 @@
 <!DOCTYPE html>
 {% load i18n %}
 <html lang="en">
-<head>
-<title>Can Benli | {% trans "Industrial Engineer | Data Scientist"%}</title>
-<meta charset="UTF-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="Can Benli, Digitization, data analysis, web programming, frontend, Html, Css, Javascript, Seo, Industrial Engineering, Dijitalleştirme, veri analizi, web programlama, önyüz, Html, Css, Javascript, Seo, Endüstri Mühendisliği" name="keywords">
-<meta content="Ambitious and motivated young industrial engineering student with a qualified knowledge and passion to learn more about engineering." name="description">
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<link rel="icon" href="/media/img/icon_logo.png">
 
-<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Site Metas -->
+    <title>{{post11.title}} | Can Benli </title>
+    <meta content="Can Benli, Digitization, data analysis, web programming, frontend, Html, Css, Javascript, Seo, Industrial Engineering, Dijitalleştirme, veri analizi, web programlama, önyüz, Html, Css, Javascript, Seo, Endüstri Mühendisliği" name="keywords">
+    <meta content="Ambitious and motivated young industrial engineering student with a qualified knowledge and passion to learn more about engineering." name="description">
 
-<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
-<link rel="stylesheet" href="/static/css/owl.carousel.min.css" />
-<link rel="stylesheet" href="/static/css/animate.css" />
+    <link rel="icon" href="/media/img/logo.png" type="image/x-icon" />
+    
 
-<link rel="stylesheet" href="/static/css/style.css" />
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css_css/bootstrap.min.css" rel="stylesheet">
 
-<script src="https://kit.fontawesome.com/20583e3abd.js" crossorigin="anonymous"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- FontAwesome Icons core CSS -->
+    <link href="/static/css_css/font-awesome.min.css" rel="stylesheet">
 
-  gtag('config', 'G-XLNELQC0VC');
-</script>
+    <!-- Custom styles for this template -->
+    <link href="/static/css_css/style.css" rel="stylesheet">
 
+    <!-- Responsive styles for this template -->
+    <link href="/static/css_css/responsive.css" rel="stylesheet">
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Colors for this template -->
+    <link href="/static/css_css/colors.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/20583e3abd.js" crossorigin="anonymous"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-XLNELQC0VC');
+      </script>
 </head>
 <body>
 
-<div id="preloder">
-<div class="loader"></div>
-</div>
+    <!-- LOADER -->
+    <div id="preloader">
+        <img class="preloader" src="/media/img/loader.gif" alt="">
+        <div class="preloader"><div class="just" style="width: 152px;margin:auto;padding-top:170px; font-size:18px; font-weight:600">just keep pedaling</div></div>
+    </div><!-- end loader -->
+    <!-- END LOADER -->
 
-<div class="spacial-controls">
-<div class="search-switch"><img src="/media/img/search-icon.png"></div>
-<div class="nav-switch-warp">
-<div class="nav-switch">
-<div class="ns-bar"></div>
-</div>
-</div>
-</div>
 
-<div class="main-warp">
-
-  <header class="header-section">
-    <div class="header-close">
-    <i class="fa fa-times"></i>
-    </div>
-    <div class="header-warp">
-    <a href="/{{request.LANGUAGE_CODE}}" class="site-logo">
-    <img src="/media/img/logo.png" alt="logo">
-    </a>
-    <img src="/media/img/menu-icon.png" alt="" class="menu-icon">
-    <ul class="main-menu">
-    <li><a href="/{{request.LANGUAGE_CODE}}">{% trans "Home"%}</a></li>
-    <li class="active"><a href="/{{request.LANGUAGE_CODE}}/blog">{% trans "Blog"%}</a></li>
-    <li><a href="/{{request.LANGUAGE_CODE}}/contact">{% trans "Contact"%}</a></li>
-    <li><a href="{% url 'set-language' 'tr' %}"><img src="/media/img/tr.png" alt="tr" width="20px"></a><a href="{% url 'set-language' 'en' %}" style="padding-left:5px"><img src="/media/img/en.png" alt="en" width="20px"></a></li>
-    
-    </ul>
-    <div class="social-links-warp">
-    <div class="social-links">
-        <a href="https://www.kaggle.com/canbenli"><i class="fa-brands fa-kaggle"></i></a>
-        <a href="https://www.linkedin.com/in/can-benli/"><i class="fa-brands fa-linkedin"></i></a>
-        <a href=""><i class="fa fa-twitter"></i></a>
-        <a href="https://github.com/canbenli"><i class="fa-brands fa-github"></i></a>
-    </div>
-    <div class="social-text">{% trans "Socials"%}</div>
-    </div>
-    </div>
-    <div class="copyright">
-    Can Benli &copy; 2023
-    </div>
-    </header>
-<br><br><br>
-<div class="page-section ">
-
-  <div class="div-absolute" style="z-index:999">
-    <button id="shareButton" class="btn" style><i class="fa-solid fa-share-from-square"></i></button>
-      <div id="shareOptions">
-        <a href="#" id="copyLink"><i class="fa-solid fa-copy"></i></a>
-      </div>
-      <div id="copyMessage">Copied <i class="fa-solid fa-check"></i></div>
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://canbenli.com/tr/articles/{{post11.slug}}&title={{post11.title}}&source={{pos11.image.url}}" target="_blank"><button class="btn"><i class="fa-brands fa-linkedin"></i></button></a>
-    <a href="https://twitter.com/intent/tweet?text={{post11.title}} isimli yazıyı okumak için https://canbenli.com/tr/articles/{{post11.slug}} sayfasını ziyaret edebilirsiniz." target="_blank"><button class="btn"><i class="fa-brands fa-square-twitter"></i></button></a>
-  </div>
-
-  <div class="blog-warps">
-    <div class="blog-track">
-        <div class="blog-post">
-          <div class="blog-thumb set-bg" data-setbg="{{post11.image.url}}"> 
-            <div class="  hidden-date">
-              <h3>{{post11.publishing_date.day}}</h3>
-                <span>{{post11.publishing_date.month}}, {{post11.publishing_date.year}}</span>
-            </div>
-          </div>
-          <h2 class="post-title">{{post11.title}}</h2>
-          <div class="post-metas">
-            <div class="post-meta">Can Benli</div>|
-            <div class="post-meta">{{post11.category.name}}</div>|
-            <div class="post-meta">{{post11.publishing_date.day}}.{{post11.publishing_date.month}}.{{post11.publishing_date.year}}</div>
-          </div>
-          <p>
-            {{post11.body|safe}}
-          </p>
-        </div>
+    <div id="wrapper">
         
-    </div>
-
-
-    
-  
-
-
-
-
-
-
-    <button class="toggle-button toggle-button2">{% trans "Comment"%}<i class="bi bi-reply" style="font-size: 20px;"></i></button>
-    <div class="toggle-container bg-white  border-top-0 p-4">
-        <form method="POST">                  
-          {% csrf_token %}
-
-            <div class="form-row">
-                
-                    <div class="form-group">
-                        <input required value = "{{name1}}" name="name" type="text" class="form-control" placeholder="{% trans "Name"%}">
-                    </div>
-                  
-               
-            </div>
-            <div class="form-group">
-                <textarea required name="message" cols="30" rows="3" class="form-control" placeholder="{% trans "Comment"%}">{{message1}}</textarea>
-            </div>
-            <div class="form-group mb-0">
-                <input type="submit" value="{% trans "SEND"%}" class="btn btn-primary font-weight-semi-bold py-2 px-3 adad">
-            </div><br><br>
-            <div class="g-recaptcha" data-sitekey="6Ldp3UUlAAAAAPO6a36dTls-vas7dbBguXbVUk2X"></div>
-                  <div style = "color:red;">
-                    {% if error %}
-                        {% trans "Confirm that you are not a robot!"%}
-                    {% endif %}
+        <header class="header_area" >
+            <div class="main_header_area animated">
+              <div class="container">
+                <nav id="navigation1" class="navigation">
+                  <!-- Logo Area Start -->
+                  <div class="nav-header">
+                    <a class="nav-brand" href="/{{request.LANGUAGE_CODE}}">CAN BENLI</a>
+                    <div class="nav-toggle"></div>
                   </div>
-        </form>
-    </div>
-  
-    <div class="comment-boxes">
-    {%for parent in parent %}
-
-      <div class="comments">
-        <div class="comments-alt">
-          <span class="spans">{{parent.name}} </span> <span class="spansa"> {{parent.created_date}}</span> <br>
-          {{parent.content|linebreaks}}
-        </div>
-        <button class="toggle-button" style="padding-left: 27px;"><i class="fa-solid fa-reply"></i></i></button>
-        <div class="toggle-container bg-white  border-top-0 p-4">
-          <form method="POST" class="margin-top:30px">
-            {% csrf_token %}
-            <div class="form-row">
-                
-                    <div class="form-group">
-                        <input id="name" name="parent_id" value = {{parent.pk}} class="form-control" type="hidden" placeholder="{{parent.name}}">
-                        <input required value = "{{name2}}" name="name_reply" class="form-control" type="text" placeholder="{% trans "Name"%}">
+                  <!-- Search panel Start -->
+                  <div class="nav-search">
+                    <div class="nav-search-button">
+                      <i class="nav-search-icon"></i>
                     </div>
-                   
-               
-            </div>
-            <div class="form-group">
-                <textarea id="message" required name="message_reply" cols="30" rows="3" class="form-control" placeholder="{% trans "Reply to"%} {{parent.name}}">{{message2}}</textarea>
-            </div>
-            <div class="form-group mb-0">
-                <input type="submit" value="{% trans "REPLY"%}" class="btn btn-primary font-weight-semi-bold py-2 px-3 ">
-            </div>
-            
-            <div class="g-recaptcha" data-sitekey="6Ldp3UUlAAAAAPO6a36dTls-vas7dbBguXbVUk2X"></div>
-                        <div style = "color:red;">
-                          {% if error2 %}
-                              {% trans "Confirm that you are not a robot!"%}
-                          {% endif %}
+                    <form>
+                      <div class="nav-search-inner">
+                        {% csrf_token %}
+                        <input type="search" name="search" placeholder=" {% trans "Search"%}">
+                        <button type="submit" style="visibility: hidden"></button> 
+
+                      </div>
+                    </form>
+                  </div>
+                  <!-- Main Menus Wrapper -->
+                  <div class="nav-menus-wrapper">
+                    <ul class="nav-menu align-to-right">
+                      <li><a href="/{{request.LANGUAGE_CODE}}">{% trans "Home"%}</a></li>
+                      <li><a href="/{{request.LANGUAGE_CODE}}/blog">{% trans "Blog"%}</a></li>
+                      <li><a href="/{{request.LANGUAGE_CODE}}/contact">{% trans "Contact"%}</a></li>
+                      <!--
+                      <li><a href="">Level 1</a>
+                        <ul class="nav-dropdown">
+                          <li><a href="">Header</a>
+                            <ul class="nav-dropdown">
+                              <li><a href="" target="_blank">Simple</a></li>
+                              <li><a href="" target="_blank">Two Menus</a></li>
+                            </ul>
+                      </li>-->
+    
+                          <li><a href="">{% trans "Language"%}</a>
+                            <ul class="nav-dropdown">
+                                <li><a href="{% url 'set-language' 'en' %}" ><img src="/media/img/en.png" alt="en" width="25px"> English</a></li>
+                                <li><a href="{% url 'set-language' 'tr' %}" ><img src="/media/img/tr.png" alt="tr" width="25px"> Türkçe</a></li>     
+                              </ul>
+                      </li>
+                      
+                          </div>
                         </div>
-        </form>
-        </div>
-      </div>
-          {%for alt_comm in parent.replies.all %}
-          <div class="comments comments2">
-            <div class="comments-alt">
-              <span class="spans">{{alt_comm.name}}</span> replied to <span class="spans">{{parent.name}}</span> {{alt_comm.created_date}} <br>
-              {{alt_comm.content|linebreaks}}
+                      </li>
+                      
+                    </ul>
+                  </div>
+                </nav>
+              </div>
             </div>
-          </div>
+          </header>
           
-          {%endfor%}
-    {% endfor %}
-    </div>
-  </div>
-</div>
+          <div class="page-title ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12col-sm-12 col-xs-12">
+                        <h2>{{post11.title}} <small><a href="/{{request.LANGUAGE_CODE}}/blog?q={{post11.category.name}}">{{post11.category.name}}</a></small></h2>
+                    </div><!-- end col -->
+                    <br>
+                    <div class="col-lg-12 col-md-12 col-sm-12 ">
+                        <ol class="breadcrumb hidden-xs-down">
+                            <li class="breadcrumb-item"><a href="/{{request.LANGUAGE_CODE}}">{% trans "Home"%}</a></li>
+                            <li class="breadcrumb-item"><a href="/{{request.LANGUAGE_CODE}}/blog">Blog</a></li>
+                            <li class="breadcrumb-item active">{{post11.title}}</li>
+                        </ol>   
+                    </div><!-- end col -->                    
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </div><!-- end page-title -->
 
-</div>
+        <section class="section wb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">
+                            <div class="blog-title-area">
+                                <div class="single-post-media  single-post-medias">
+                                    <img src="{{post11.image.url}}" alt="" class="img-fluid" style="object-position:center">
+                                  </div>
+                                <!-- end media --> 
+                                   <br>
 
-<div class="search-model">
-  <div class="h-100 d-flex align-items-center justify-content-center">
-      <div class="search-close-switch">x</div>
-          <form class="search-moderl-form">
-          {% csrf_token %}
-          <input name = "q2" type="text" id="search-input" placeholder="{% trans "Search" %}"><button type="submit"></button>
-          </form>
-      </div>
-  </div>
+                                    <span class="color-aqua" style="color: black;"><a href="/{{request.LANGUAGE_CODE}}/blog?q={{post11.category.name}}">{{post11.category.name}}</a></span>
+
+                                <h3>{{post11.title}}</h3>
+                               
+                                <div class="blog-meta big-meta">
+                                    <small><a href="https://www.linkedin.com/in/can-benli/">Can Benli</a></small>
+                                    <small style="font-weight: 400;">{{post11.publishing_date.day}}.{{post11.publishing_date.month}}.{{post11.publishing_date.year}}</small>
+                                    <small style="font-weight: 400;"><i class="fa fa-eye"></i> {{post11.read}}</small>
+                                </div><!-- end meta -->
+
+                                <div class="post-sharing">
+                                    <ul class="list-inline">
+                                        <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-linkedin"></i> <span style="font-weight: 400;">Share on LinkedIn</span></a></li>
+                                        <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span style="font-weight: 400;">Tweet on Twitter</span></a></li>
+                                    </ul>
+                                </div><!-- end post-sharing -->
+                            </div><!-- end title -->
+    
+                          
+
+                            <div class="blog-content">  
+                                <div class="pp">
+                                    <p>{{post11.body|safe}}</p>
+                                </div><!-- end pp -->
+
+                            </div><!-- end content -->
+
+                            <div class="blog-title-area">
+                                <div class="tag-cloud-single">
+                                    <span>{% trans "Tags"%}</span>
+                                    <small><a href="/{{request.LANGUAGE_CODE}}/blog?q={{post11.category.name}}" >{{post11.category.name}}</a></small>
+                                </div><!-- end meta -->
+
+                                <div class="post-sharing">
+                                    <ul class="list-inline">
+                                        <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-linkedin"></i> <span style="font-weight: 400;">{% trans "Share on LinkedIn"%}</span></a></li>
+                                        <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span style="font-weight: 400;">{% trans "Tweet on Twitter"%}</span></a></li>
+                                    </ul>
+                                </div><!-- end post-sharing -->
+                            </div><!-- end title -->
+
+                          
 
 
-  <script src="/static/js/jquery-3.2.1.min.js"></script>
-  <script src="/static/js/bootstrap.min.js"></script>
-  <script src="/static/js/owl.carousel.min.js"></script>
-  <script src="/static/js/jquery.nicescroll.min.js"></script>
-  <script src="/static/js/isotope.pkgd.min.js"></script>
-  <script src="/static/js/imagesloaded.pkgd.min.js"></script>
-  <script src="/static/js/circle-progress.min.js"></script>
-  <script src="/static/js/main.js"></script>
+                            
 
+                            <hr class="invis1">
+
+                            <div class="custombox authorbox clearfix">
+                                <h4 class="small-title">{% trans "About"%}</h4>
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                        <img src="{{resume.cv_resmi.url}}" alt="" class="img-fluid rounded-circle"> 
+                                    </div><!-- end col -->
+
+                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                        <h4><a href="#">M. Can Benli</a> <br><span style="font-size:15px"> {% trans "Industrial Engineer, Data Scientist"%}</span></h4>
+                                        <p>{{resume.body|safe}}</p>
+                                        <p><a href="{{resume.cv.url}}" download style="color:#000"> {% trans "Resume"%} (EN) &nbsp;<i class="fa-solid fa-download"></i></a></p>
+                                        <div class="topsocial">
+                                            <a href="https://www.linkedin.com/in/can-benli/" data-toggle="tooltip" data-placement="bottom" title="LinkedIn"><i class="fa fa-linkedin"  style="color: black;"></i></a>
+                                            <a href="https://github.com/canbenli" data-toggle="tooltip" data-placement="bottom" title="Github"><i class="fa fa-github"  style="color: black;"></i></a>
+                                            <a href="https://medium.com/@mcbenli80" data-toggle="tooltip" data-placement="bottom" title="Medium"><i class="fa fa-medium"  style="color: black;"></i></a>
+                                        </div><!-- end social  -->
+
+                                    </div><!-- end col -->
+                                </div><!-- end row -->
+                            </div><!-- end author-box -->
+
+                            <hr class="invis1">
+
+                            <div class="custombox clearfix">
+                                <h4 class="small-title">{% trans "You may also like"%}</h4>
+                                <div class="row">
+
+                                    {% for post in recommend %}
+                                    <div class="col-lg-6">
+                                        <div class="blog-box">
+                                            <div class="post-media">
+                                                <a href="/{{request.LANGUAGE_CODE}}/post/{{post.slug}}" >
+                                                    <img src="{{post.image.url}}" alt="data" class="img-fluid">
+                                                    <div class="hovereffect">
+                                                        <span class=""></span>
+                                                    </div><!-- end hover -->
+                                                </a>
+                                            </div><!-- end media -->
+                                            <div class="blog-meta">
+                                                <h4><a href="/{{request.LANGUAGE_CODE}}/post/{{post.slug}}" >{{post.title}}</a></h4>
+                                                <small><a href="/{{request.LANGUAGE_CODE}}/blog?q={{post.category.name}}" >{{post.category.name}}</a></small>
+                                                <small><a href="/{{request.LANGUAGE_CODE}}/post/{{post.slug}}" >{{post.publishing_date}}</a></small>
+                                            </div><!-- end meta -->
+                                        </div><!-- end blog-box -->
+                                    </div><!-- end col -->
+                                    {% endfor %}
+
+                                    
+                                </div><!-- end row -->
+                            </div><!-- end custom-box -->
+
+                            <hr class="invis1">
+
+                            <div class="custombox clearfix">
+                                <h4 class="small-title">{% trans "Comments"%}</h4>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="comments-list">
+                                            {%for parent in parent %}
+                                            
+                                            <div class="media last-child">
+                                                <a class="media-left" href="#">
+                                                    <img src="/media/img/p.png" class="rounded-circle">
+                                                </a>
+                                                <div class="media-body">
+
+                                                    <h4 class="media-heading user_name">{{parent.name}}<small>{{parent.created_date.day}}.{{parent.created_date.month}}.{{parent.created_date.year}}</small></h4>
+                                                    <p>{{parent.content|linebreaks}}</p>
+
+                                       <!--           <a href="#" class="btn btn-primary btn-sm">Reply</a>-->  
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                            
+                                        </div>
+                                    </div><!-- end col -->
+                                </div><!-- end row -->
+                            </div><!-- end custom-box -->
+
+                            <hr class="invis1">
+
+                            <div class="custombox clearfix">
+                                <h4 class="small-title">{% trans "Make Comment"%}</h4>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <form class="form-wrapper"  method="POST">
+                                           
+                                            {% csrf_token %}
+                                            <input required value = "{{name1}}" name="name" class="form-control" type="text" placeholder="{% trans "Name"%}">
+                                            <textarea required name="message" class="form-control" cols="30" rows="15" placeholder="{% trans "Comment"%}" style="height: 100px;" maxlength="999">{{message1}}</textarea>
+                                            <button type="submit" class="btn btn-primary ">{% trans "SEND"%}</button> 
+                                            <br><br>
+                                            <div class="g-recaptcha" data-sitekey="6Ldp3UUlAAAAAPO6a36dTls-vas7dbBguXbVUk2X"></div>
+                                            <div style = "color:red;">
+                                              {% if error %}
+                                                  {% trans "Confirm that you are not a robot!"%}
+                                              {% endif %}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- end page-wrapper -->
+                    </div><!-- end col -->
+
+                    
+                </div><!-- end row -->
+
+
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                  <div class="sidebar">
+                      
+
+                      <div class="widget">
+                          <h2 class="widget-title">{% trans "Most Viewed"%}</h2>
+                          <hr class="line">
+                          <div class="blog-list-widget">
+                              <div class="list-group">
+                                  {% for pop in popular%}
+                                  <a href="{% url 'blog_single' pop.slug %}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                      <div class="w-100 justify-content-between">
+                                          
+                                          <h5 class="mb-1">{{pop.title}}</h5>
+                                          <small>{{pop.publishing_date.day}}.{{pop.publishing_date.month}}.{{pop.publishing_date.year}} ●</small> 
+                                          <small><i class="fa-regular fa-eye"  style="font-size:8px"> {{pop.read}}</i></small>
+                                      
+                                      </div>
+                                  </a>
+                                  {% endfor %}
+                                  
+                              </div>
+                          </div><!-- end blog-list -->
+                      </div><!-- end widget -->
+
+                    
+
+                      <div class="widget">
+                          <h2 class="widget-title">{% trans "Tags"%}</h2>
+                          <hr class="line">
+                          <div class="link-widget">
+                              <ul>
+                                  {% for cat in tags %}
+                                  <li><a href="/{{request.LANGUAGE_CODE}}/blog?q={{cat.name}}">{{cat.name}}</a></li>
+                                  {% endfor %}
+                              </ul>
+                          </div><!-- end link-widget -->
+                      </div><!-- end widget -->
+
+
+
+                      <div class="widget">
+                          <h2 class="widget-title">{% trans "Recent"%}</h2>      
+                          <hr class="line">
+                          <div class="blog-list-widget">
+                              <div class="list-group">
+                                  {% for rec in recent%}
+                                  <a href="{% url 'blog_single' rec.slug %}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                      <div class="w-100 justify-content-between">
+                                    <!--     <img src="{{rec.image.url}}" alt="data" class="img-fluid float-left">--> 
+                                          <h5 class="mb-1">{{rec.title}}</h5>
+                                          <small>{{rec.publishing_date.day}}.{{rec.publishing_date.month}}.{{rec.publishing_date.year}} ●</small> 
+                                          <small><i class="fa-regular fa-eye"  style="font-size:8px"> {{rec.read}}</i></small>
+                                      </div>
+                                  </a>
+                                  {% endfor %}
+                                  
+                              </div>
+                          </div><!-- end blog-list -->
+                      </div><!-- end widget -->
+
+
+                  </div><!-- end sidebar -->
+              </div><!-- end col -->
+            </div><!-- end container -->
+        </section>
+
+        
+        <footer class="footer">
+            <div class="container">
+               
+
+                <hr class="invis1">
+
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="widget">
+                            <div class="footer-text text-center">
+                              <br><br><br>
+                             <!--  <p></p>--> 
+                                <div class="social">
+                                    <a href="https://www.linkedin.com/in/can-benli/" data-toggle="tooltip" data-placement="bottom" title="LinkedIn"><i class="fa fa-linkedin"  style="color: black;"></i></a>
+                                    <a href="https://github.com/canbenli" data-toggle="tooltip" data-placement="bottom" title="Github"><i class="fa fa-github"  style="color: black;"></i></a>
+                                    <a href="https://medium.com/@mcbenli80" data-toggle="tooltip" data-placement="bottom" title="Medium"><i class="fa fa-medium"  style="color: black;"></i></a>
+                                </div>
+
+                                <hr class="invis">
+
+                                
+                            </div><!-- end footer-text -->
+                        </div><!-- end widget -->
+                    </div><!-- end col -->
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <br>
+                        <div class="copyright">Can Benli &copy; 2023</div>
+                    </div>
+                </div>
+            </div><!-- end container -->
+        </footer><!-- end footer -->
+
+        <div class="dmtop"></div>
+        
+    </div><!-- end wrapper -->
+
+    <!-- Core JavaScript
+    ================================================== -->
+    <script src="/static/js_js/jquery.min.js"></script>
+    <script src="/static/js_js/tether.min.js"></script>
+    <script src="/static/js_js/bootstrap.min.js"></script>
+    <script src="/static/js_js/custom.js"></script>
 </body>
 </html>
-
-
-<script>
-  // Butonlara tıklandığında ilgili div'i aç/kapat
-document.querySelectorAll('.toggle-button').forEach(button => {
-  const targetDiv = button.nextElementSibling;
-
-  button.addEventListener('click', () => {
-    // Hedef div'i aç/kapat
-    if (targetDiv.classList.contains('active')) {
-      targetDiv.classList.remove('active');
-      targetDiv.style.height = 0;
-    } else {
-      targetDiv.classList.add('active');
-      targetDiv.style.height = targetDiv.scrollHeight + 'px';
-    }
-  });
-});
-
-</script>
-
-
-<script>
-  const shareButton = document.getElementById('shareButton');
-  const shareOptions = document.getElementById('shareOptions');
-  const copyLink = document.getElementById('copyLink');
-  const copyMessage = document.getElementById('copyMessage');
-
-  shareButton.addEventListener('click', function () {
-      shareOptions.classList.toggle('show');
-  });
-
-  copyLink.addEventListener('click', function (event) {
-      event.preventDefault();
-      const linkToCopy = window.location.href;
-      copyToClipboard(linkToCopy);
-      showCopyMessage();
-  });
-
-  function copyToClipboard(text) {
-      const textarea = document.createElement('textarea');
-      textarea.value = text;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-  }
-
-  function showCopyMessage() {
-      copyMessage.style.display = 'block';
-      setTimeout(function () {
-          copyMessage.style.display = 'none';
-      }, 2000);
-  }
-</script>

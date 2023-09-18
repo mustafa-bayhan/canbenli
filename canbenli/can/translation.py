@@ -4,13 +4,13 @@ from modeltranslation.translator import TranslationOptions,register,translator
     
     
 class PostTranslationOptions(TranslationOptions):
-    fields = ('read_time', 'title', 'body','summary')
+    fields = ('title','summary', 'body',)
 
 class CategoryTranslationOptions(TranslationOptions):
     fields = ('name',)
     
 class ResumeTranslationOptions(TranslationOptions):
-    fields = ('body','interest')
+    fields = ('body',)
     
 translator.register(Post, PostTranslationOptions)
 translator.register(Category, CategoryTranslationOptions)

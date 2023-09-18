@@ -64,13 +64,27 @@ def home(request):
         return HttpResponseRedirect('blog?q2={}'.format(query2))
     
     context=dict()
-    context['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-publishing_date','-id').distinct()[0:4]
+    context['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-read','-id').distinct()[0:3]
     context['portfolioh']=Portfolio.objects.all().order_by('-publishing_date','-id').distinct()[0:3]
-    context['posts']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-publishing_date','-id').distinct()[0:3]
-    context['postss']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-read','-id').distinct()[0:3]
+    context['posts']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-read','-id').distinct()[0:3]
     context['portfolio']=Portfolio.objects.all().order_by('-publishing_date','-id').distinct()[0:3]
     resume=Resume.objects.all().order_by('-publishing_date','-id').distinct()
     
+    posts = Post.objects.filter(Q(completed__iexact='completed')).distinct()
+    context['left']=posts.filter(Q(category__slug__iexact='machine-learning')).order_by('-publishing_date','-id').distinct()[0:2]
+    context['right']=posts.filter(Q(category__slug__iexact='data-preprocessing')).order_by('-publishing_date','-id').distinct()[0:3]
+    context['center']=posts.filter(Q(category__slug__iexact='machine-learning')).order_by('-read','-id').distinct()[0:1]
+    context['undercenter']=posts.filter(Q(category__slug__iexact='SQL')).order_by('-publishing_date','-id').distinct()[0:2]
+    context['undercenter2']=posts.filter(Q(category__slug__iexact='SQL')).order_by('-read','-id').distinct()[0:2]
+    context['category1']=posts.filter(Q(category__slug__iexact='machine-learning')).order_by('-read','-id').distinct()[0:2]
+    context['tags'] = Category.objects.all()
+    context['recent'] = Category.objects.all()
+    context['recent']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-publishing_date').distinct()[:4]
+    context['popular'] = Category.objects.all()
+    context['popular']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-read').distinct()[:4]
+    context['datapp']=posts.filter(Q(category__slug__iexact='data-preprocessing')).order_by('-read','-id').distinct()[0:4]
+    
+
     if len(resume)!=0:
         context['resume']=resume[0]
         
@@ -102,15 +116,14 @@ def contact(request):
     if request.LANGUAGE_CODE == 'en-us':
         return redirect('/en/contact')
     
-    
-    query3=request.GET.get('q2')
-    if query3:
-        return HttpResponseRedirect('blog?q2={}'.format(query3))
-    
-    
     context9=dict()
-    context9['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-publishing_date','-id').distinct()[0:4]
+    context9['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-read','-id').distinct()[0:4]
     context9['portfolioh']=Portfolio.objects.all().order_by('-publishing_date','-id').distinct()[0:6]
+    context9['tags'] = Category.objects.all()
+    context9['recent'] = Category.objects.all()
+    context9['recent']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-publishing_date').distinct()[:4]
+    context9['popular'] = Category.objects.all()
+    context9['popular']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-read').distinct()[:4]
     
     if request.method=="POST":
         recaptcha_response = request.POST.get('g-recaptcha-response') #8
@@ -138,7 +151,20 @@ def contact(request):
         
     return render(request,'contact.html',context9)
 
-
+def about(request):
+    if request.LANGUAGE_CODE == 'en-us':
+        return redirect('/en/about')
+    
+    context1=dict()
+    context1['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-read','-id').distinct()[0:4]
+    context1['portfolioh']=Portfolio.objects.all().order_by('-publishing_date','-id').distinct()[0:6]
+    
+    resume=Resume.objects.all().order_by('-publishing_date','-id').distinct()
+    if len(resume)!=0:
+        context1['resume']=resume[0]
+    
+    
+    return render(request,'about.html',context1)
 
 
 def blog(request):
@@ -148,19 +174,12 @@ def blog(request):
     posts=Post.objects.filter(Q(completed__iexact='completed')).distinct()
     query=request.GET.get('q')
     search=request.GET.get('search')
-    query3=request.GET.get('q2')
-    context2['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-publishing_date','-id').distinct()[0:4]
+    context2['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-read','-id').distinct()[0:4]
     context2['portfolioh']=Portfolio.objects.all().order_by('-publishing_date','-id').distinct()[0:6]
     
     if query:
         posts= posts.filter(
              Q(category__name__exact=query)
-        ).distinct()
-        context2['temizle'] = ('temizle')
-        
-    if query3:
-        posts= posts.filter(
-              Q(title__icontains=query3)|Q(category__name__icontains=query3)|Q(body__icontains=query3)
         ).distinct()
         context2['temizle'] = ('temizle')
         
@@ -208,24 +227,25 @@ def blog(request):
     context2['categories']=Category.objects.all()
     context2['tags'] = Category.objects.all()
     context2['recent'] = Category.objects.all()
-    context2['recent']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-read').distinct()[:5]
+    context2['recent']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-publishing_date').distinct()[:4]
+    context2['popular'] = Category.objects.all()
+    context2['popular']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-read').distinct()[:4]
     return render(request,'blog.html',context2)
 
 
 def blog_single(request, slug):
     
     context3={}
-    context3['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-publishing_date','-id').distinct()[0:4]
-    context3['portfolioh']=Portfolio.objects.all().order_by('-publishing_date','-id').distinct()[0:6]
+    
+    resume=Resume.objects.all().distinct()
+    if len(resume)!=0:
+        context3['resume']=resume[0]
+        
     post11=get_object_or_404(Post, slug=slug)
     if request.LANGUAGE_CODE == 'en-us':
         return redirect('/en/{}'.format(post11.get_absolute_url()))
     
     query2=request.POST.get('parent_id')
-    query3=request.GET.get('q3')
-    if query3:
-        return HttpResponseRedirect('blog?q3={}'.format(query3))
-    
 
     
    
@@ -233,10 +253,21 @@ def blog_single(request, slug):
     read += 1
     degıs = Post.objects.filter(slug=slug).update(read=read)
     context3['post11'] = post11
-    context3['recent']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-read').distinct()[:5]
-    context3['tags'] = Category.objects.all()
     context3['parent'] = Comment.objects.filter(Q(parent_comment__id__iexact=None),Q(post__id__iexact=post11.id)).order_by('-created_date','-id').distinct()
     context3['inner'] = Comment.objects.filter(~Q(parent_comment__id__iexact=None))
+    context3['categories']=Category.objects.all()
+    context3['tags'] = Category.objects.all()
+    context3['recent'] = Category.objects.all()
+    context3['recent']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-publishing_date').distinct()[:4]
+    context3['popular'] = Category.objects.all()
+    context3['popular']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-read').distinct()[:4]
+    posts=Post.objects.filter(Q(completed__iexact='completed')).distinct()
+    recommend=posts.filter(Q(category__slug__iexact=post11.category.slug)).exclude(Q(slug__iexact=post11.slug)).order_by('-read','-id').distinct()[0:2]
+    if not len(recommend) == 0:
+        context3['recommend'] = recommend
+    else:
+        context3['recommend'] = posts.exclude(Q(slug__iexact=post11.slug)).order_by('-read','-id').distinct()[0:2]
+    
     if request.method=="POST" and query2 == None:
         recaptcha_response = request.POST.get('g-recaptcha-response') #8
         recaptcha_response_result = recaptcha_check(recaptcha_response) #9
@@ -286,15 +317,9 @@ def blog_single(request, slug):
 def portfolio(request):
     if request.LANGUAGE_CODE == 'en-us':
         return redirect('/en/projects')
-    
-    query3=request.GET.get('q2')
-    if query3:
-        return HttpResponseRedirect('blog?q2={}'.format(query3))
-    
-    
     context4=dict()
-    context4['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-publishing_date','-id').distinct()[0:4]
-    context4['portfolioh']=Portfolio.objects.all().order_by('-publishing_date','-id').distinct()
+    context4['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-read','-id').distinct()[0:4]
+    context4['portfolioh']=Portfolio.objects.all().order_by('-publishing_date','-id').distinct()[0:6]
     portfolio=Portfolio.objects.all().order_by('-publishing_date','-id')
     paginator = Paginator(portfolio, 30) # bir sayfada kaç tane görünmesi gerek
     context4['filter_count']=paginator.count
@@ -333,47 +358,15 @@ def portfolio(request):
     return render(request,'projects.html', context4)
 
 
-def about(request):
-    if request.LANGUAGE_CODE == 'en-us':
-        return redirect('/en/about')
-    
-    
-    query3=request.GET.get('q2')
-    if query3:
-        return HttpResponseRedirect('blog?q2={}'.format(query3))
-    
-    context1=dict()
-    context1['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-publishing_date','-id').distinct()[0:4]
-    context1['portfolioh']=Portfolio.objects.all().order_by('-publishing_date','-id').distinct()
-    resume=Resume.objects.all().order_by('-publishing_date','-id').distinct()
-    
-    
-    if len(resume)!=0:
-        context1['resume']=resume[0]
-    
-    
-    return render(request,'about.html',context1)
 
 
 
 
 
-def handle_not_found(request, exception):
-    
-    
-    if request.LANGUAGE_CODE == 'en-us':
-        return redirect('/')
-    
-    query3=request.GET.get('q2')
-    if query3:
-        return HttpResponseRedirect('blog?q2={}'.format(query3))
-    
-    
-    
-    context77={}
- 
-        
-    return render(request, '404.html',context77)
+
+
+
+
 
 
 

@@ -1,239 +1,313 @@
 <!DOCTYPE html>
 {% load i18n %}
 <html lang="en">
-<head>
-<title>Can Benli | {% trans "Industrial Engineer | Data Scientist"%}</title>
-<meta charset="UTF-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="Can Benli, Digitization, data analysis, web programming, frontend, Html, Css, Javascript, Seo, Industrial Engineering, Dijitalleştirme, veri analizi, web programlama, önyüz, Html, Css, Javascript, Seo, Endüstri Mühendisliği" name="keywords">
-<meta content="Ambitious and motivated young industrial engineering student with a qualified knowledge and passion to learn more about engineering." name="description">
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<link rel="icon" href="/media/img/icon_logo.png">
 
-<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Site Metas -->
+    <title>Blog | Can Benli</title>
+    <meta content="Can Benli, Digitization, data analysis, web programming, frontend, Html, Css, Javascript, Seo, Industrial Engineering, Dijitalleştirme, veri analizi, web programlama, önyüz, Html, Css, Javascript, Seo, Endüstri Mühendisliği" name="keywords">
+    <meta content="Ambitious and motivated young industrial engineering student with a qualified knowledge and passion to learn more about engineering." name="description">
 
-<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
-<link rel="stylesheet" href="/static/css/owl.carousel.min.css" />
-<link rel="stylesheet" href="/static/css/animate.css" />
+    <link rel="icon" href="/media/img/logo.png" type="image/x-icon" />
+    
 
-<link rel="stylesheet" href="/static/css/style.css" />
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css_css/bootstrap.min.css" rel="stylesheet">
 
-<script src="https://kit.fontawesome.com/20583e3abd.js" crossorigin="anonymous"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- FontAwesome Icons core CSS -->
+    <link href="/static/css_css/font-awesome.min.css" rel="stylesheet">
 
-  gtag('config', 'G-XLNELQC0VC');
-</script>
+    <!-- Custom styles for this template -->
+    <link href="/static/css_css/style.css" rel="stylesheet">
 
+    <!-- Responsive styles for this template -->
+    <link href="/static/css_css/responsive.css" rel="stylesheet">
+
+    <!-- Colors for this template -->
+    <link href="/static/css_css/colors.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/20583e3abd.js" crossorigin="anonymous"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-XLNELQC0VC');
+      </script>
 </head>
 <body>
 
-<div id="preloder">
-<div class="loader"></div>
-</div>
+    <!-- LOADER -->
+    <div id="preloader">
+        <img class="preloader" src="/media/img/loader.gif" alt="">
+        <div class="preloader"><div class="just" style="width: 152px;margin:auto;padding-top:170px; font-size:18px; font-weight:600">just keep pedaling</div></div>
+    </div><!-- end loader -->
+    <!-- END LOADER -->
 
-<div class="spacial-controls">
-<div class="search-switch"><img src="/media/img/search-icon.png"></div>
-<div class="nav-switch-warp">
-<div class="nav-switch">
-<div class="ns-bar"></div>
-</div>
-</div>
-</div>
 
-<div class="main-warp">
-
-  <header class="header-section">
-    <div class="header-close">
-    <i class="fa fa-times"></i>
-    </div>
-    <div class="header-warp">
-    <a href="/{{request.LANGUAGE_CODE}}" class="site-logo">
-    <img src="/media/img/logo.png" alt="logo">
-    </a>
-    <img src="/media/img/menu-icon.png" alt="" class="menu-icon">
-    <ul class="main-menu">
-    <li><a href="/{{request.LANGUAGE_CODE}}">{% trans "Home"%}</a></li>
-    <li class="active"><a href="/{{request.LANGUAGE_CODE}}/blog">{% trans "Blog"%}</a></li>
-    <li><a href="/{{request.LANGUAGE_CODE}}/contact">{% trans "Contact"%}</a></li>
-    <li><a href="{% url 'set-language' 'tr' %}"><img src="/media/img/tr.png" alt="tr" width="20px"></a><a href="{% url 'set-language' 'en' %}" style="padding-left:5px"><img src="/media/img/en.png" alt="en" width="20px"></a></li>
-    
-    </ul>
-    <div class="social-links-warp">
-    <div class="social-links">
-        <a href="https://www.kaggle.com/canbenli"><i class="fa-brands fa-kaggle"></i></a>
-        <a href="https://www.linkedin.com/in/can-benli/"><i class="fa-brands fa-linkedin"></i></a>
-        <a href=""><i class="fa fa-twitter"></i></a>
-        <a href="https://github.com/canbenli"><i class="fa-brands fa-github"></i></a>
-    </div>
-    <div class="social-text">{% trans "Socials"%}</div>
-    </div>
-    </div>
-    <div class="copyright">
-    Can Benli &copy; 2023
-    </div>
-    </header>
-<br><br><br>
-<div class="page-section ">
-
-  
-  <div class="blog-warps">
-    <div class="categories">
-      {% for cat in tags %}
-      <a href="/{{request.LANGUAGE_CODE}}/blog?q={{cat.name}}">{{cat.name}}</a>
-      {% endfor %}
-    </div>
-    <div class="filtering">
-      {% if temizle %}
-            <a href="/{{request.LANGUAGE_CODE}}/blog"><p style="text-align:center;">{% trans "Show all posts"%}</p></a>
-            {% endif %}
-            {%if request.GET.q%}
-                <p style="text-align:center;"><strong> {{filter_count}} </strong>{% trans "post related to "%} <strong>{{request.GET.q}}</strong>{% trans " were found"%}  </p>
-            {% endif %}
-            {%if request.GET.search%}
-                <p style="text-align:center;"><strong> {{filter_count}} </strong>{% trans "post related to "%}<strong>{{request.GET.search}}</strong> {% trans " were found"%}</p>
-            {% endif %}
-    </div>
-    <div class="blog-track" style="display:flex; flex-wrap:wrap; justify-content: space-between;">
-      {% for post in posts %}
-      <div class="blog-post blog-post-70 blog-post-half">
-        <div class="blog-thumb set-bg" data-setbg="{{post.image.url}}">
-          <div class="post-date">
-            <h3>{{post.publishing_date.day}}</h3>
-            <span>{{post.publishing_date.month}}, {{post.publishing_date.year}}</span>
-          </div>
-        </div>
-            <h2 class="post-title"><a href="{% url 'blog_single' post.slug %}" style="color:#000">{{post.title}}</a></h2>
-        <div class="post-metas">
-            <div class="post-meta">Can Benli</div>|
-            <div class="post-meta"><a href="/{{request.LANGUAGE_CODE}}/articles?q={{cat.name}}">{{post.category.name}}</a></div>|
-            <div class="post-meta">{{post.publishing_date.day}}.{{post.publishing_date.month}}.{{post.publishing_date.year}}</div>
-          </div>
-          <p>{{post.summary}}</p>
-      </div>
-      {% endfor %}
+    <div id="wrapper">
         
-    </div>
-   
-    <section class="pagination">
-      {% if page.has_previous %}
-     <a href="?page={{ page.previous_page_number }}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">
-        <i class="fa-solid fa-angle-left"></i>
-       </a>
-      {% else %}
-      <a><i class="fa-solid fa-angle-left"></i></a>  
-      {% endif %}
-      {% if first %}
-        <a href="?page=1{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">1</a>
-      {% endif %}
-      {% if three_dot %}
-        <a>...</a>
-      {% endif %}
-      {% if page.has_previous %}
-        <a href="?page={{ page.previous_page_number }}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ page.previous_page_number }}</a>
-      {% endif %}
-        <a>{{page.number}}</a>
-      {% if page.has_next %}
-         <a href="?page={{ page.next_page_number }}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ page.next_page_number }}</a>
-      {% endif %}
-      {% if last_three %}
-        <a>...</a>
-        
-      {% endif %}
-      {% if last %}
-         <a href="?page={{page.paginator.num_pages}}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{page.paginator.num_pages}}</a>
-      {% endif %}
-      {% if page.has_next %}
-      <a href="?page={{ page.next_page_number }}{% if request.GET.q2 %}&q2={{ request.GET.q2 }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">
-        <i class="fa-solid fa-angle-right"></i>
-         </a>
-      {% else %}
-      <a><i class="fa-solid fa-angle-right"></i></a>
-      {% endif %}
+        <header class="header_area">
+            <div class="main_header_area animated">
+              <div class="container">
+                <nav id="navigation1" class="navigation">
+                  <!-- Logo Area Start -->
+                  <div class="nav-header">
+                    <a class="nav-brand" href="/{{request.LANGUAGE_CODE}}">CAN BENLI</a>
+                    <div class="nav-toggle"></div>
+                  </div>
+                  <!-- Search panel Start -->
+                  <div class="nav-search">
+                    <div class="nav-search-button">
+                      <i class="nav-search-icon"></i>
+                    </div>
+                    <form>
+                      <div class="nav-search-inner">
+                        {% csrf_token %}
+                        <input type="search" name="search" placeholder=" {% trans "Search"%}">
+                        <button type="submit" style="visibility: hidden"></button> 
+
+                      </div>
+                    </form>
+                  </div>
+                  <!-- Main Menus Wrapper -->
+                  <div class="nav-menus-wrapper">
+                    <ul class="nav-menu align-to-right">
+                      <li><a href="/{{request.LANGUAGE_CODE}}">{% trans "Home"%}</a></li>
+                      <li><a href="/{{request.LANGUAGE_CODE}}/blog">{% trans "Blog"%}</a></li>
+                      <li><a href="/{{request.LANGUAGE_CODE}}/contact">{% trans "Contact"%}</a></li>
+                      <!--
+                      <li><a href="">Level 1</a>
+                        <ul class="nav-dropdown">
+                          <li><a href="">Header</a>
+                            <ul class="nav-dropdown">
+                              <li><a href="" target="_blank">Simple</a></li>
+                              <li><a href="" target="_blank">Two Menus</a></li>
+                            </ul>
+                      </li>-->
     
-  </section> <br><br><br><br>
-  </div>
-</div>
+                          <li><a href="">{% trans "Language"%}</a>
+                            <ul class="nav-dropdown">
+                                <li><a href="{% url 'set-language' 'en' %}" ><img src="/media/img/en.png" alt="en" width="25px"> English</a></li>
+                                <li><a href="{% url 'set-language' 'tr' %}" ><img src="/media/img/tr.png" alt="tr" width="25px"> Türkçe</a></li>     
+                              </ul>
+                      </li>
+                      
+                          </div>
+                        </div>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </header>
 
-</div>
+        <div class="page-title ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12col-sm-12 col-xs-12">
+                        <h2>BLOG <small>{% trans "Research, Projects and Blog Posts in the Areas I'm Interested in "%}</small></h2>
+                    </div><!-- end col -->
+                    <br>
+                    <div class="col-lg-12 col-md-12 col-sm-12 ">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/{{request.LANGUAGE_CODE}}">{% trans "Home"%}</a></li>
+                            <li class="breadcrumb-item"><a href="/{{request.LANGUAGE_CODE}}/blog">Blog</a></li>
+                        </ol>
+                    </div><!-- end col -->                    
+                </div><!-- end row -->
+            </div><!-- end container -->
+            
+        </div><!-- end page-title -->
 
-<div class="search-model">
-  <div class="h-100 d-flex align-items-center justify-content-center">
-      <div class="search-close-switch">x</div>
-          <form class="search-moderl-form">
-          {% csrf_token %}
-          <input name = "q2" type="text" id="search-input" placeholder="{% trans "Search" %}"><button type="submit"></button>
-          </form>
-      </div>
-  </div>
+        <section class="section wb">
+            <div class="container">
+                <div class="filtering">
+                    {% if temizle %}
+                          <a href="/{{request.LANGUAGE_CODE}}/blog"><p >{% trans "Show all posts"%}</p></a>
+                          {% endif %}
+                          {%if request.GET.q%}
+                              <p><strong> {{filter_count}} </strong>{% trans "post related to "%} <strong>{{request.GET.q}}</strong>{% trans " were found"%}  </p>
+                          {% endif %}
+                          {%if request.GET.search%}
+                              <p><strong> {{filter_count}} </strong>{% trans "post related to "%}<strong>{{request.GET.search}}</strong> {% trans " were found"%}</p>
+                          {% endif %}
+                  </div>
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">
+                            
+
+                            <hr class="invis">
+
+                            <div class="blog-grid-system">
+                                <div class="row">
+
+                                    
+
+                                {% for post in posts %}
+                                    <div class="col-md-6">
+                                        <div class="blog-box">
+                                            <div class="post-media media250h">
+                                                <a href="{% url 'blog_single' post.slug %}">
+                                                    <img src="{{post.image.url}}" alt="data" class="img-fluid">
+                                                    <div class="hovereffect">
+                                                        <span></span>
+                                                    </div><!-- end hover -->
+                                                </a>
+                                            </div><!-- end media -->
+                                            <div class="blog-meta big-meta">
+                                                <h4><a href="{% url 'blog_single' post.slug %}" >{{post.title}}</a></h4>
+                                                <p>{{post.summary}}</p>
+                                                <small><a href="/{{request.LANGUAGE_CODE}}/blog?q={{post.category.name}}">{{post.category.name}}</a></small>
+                                                <small style="font-weight: 300px;">{{post.publishing_date.day}}.{{post.publishing_date.month}}.{{post.publishing_date.year}}</small>
+                                                <small style="font-weight: 300px;"><i class="fa-regular fa-eye"></i> {{post.read}}</small>
+                                                <small><a href="https://www.linkedin.com/in/can-benli/">Can Benli</a></small>
+                                            </div><!-- end meta -->
+                                        </div><!-- end blog-box -->
+                                    </div><!-- end col -->
+                                {% endfor %}
+                                    
+
+                                  
+
+                                </div><!-- end row -->
+                            </div><!-- end blog-grid-system -->
+                        </div><!-- end page-wrapper -->
+
+                        <hr class="invis3">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-start">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">{% trans "Prev"%}</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">{% trans "Next"%}</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                    </div><!-- end col -->
+
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sidebar">
+                            
+
+                            <div class="widget">
+                                <h2 class="widget-title">{% trans "Most Viewed"%}</h2>
+                                <hr class="line">
+                                <div class="blog-list-widget">
+                                    <div class="list-group">
+                                        {% for pop in popular%}
+                                        <a href="{% url 'blog_single' pop.slug %}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="w-100 justify-content-between">
+                                                
+                                                <h5 class="mb-1">{{pop.title}}</h5>
+                                                <small>{{pop.publishing_date.day}}.{{pop.publishing_date.month}}.{{pop.publishing_date.year}} ●</small> 
+                                                <small><i class="fa-regular fa-eye"  style="font-size:8px"> {{pop.read}}</i></small>
+                                            
+                                            </div>
+                                        </a>
+                                        {% endfor %}
+                                        
+                                    </div>
+                                </div><!-- end blog-list -->
+                            </div><!-- end widget -->
+
+                          
+
+                            <div class="widget">
+                                <h2 class="widget-title">{% trans "Tags"%}</h2>
+                                <hr class="line">
+                                <div class="link-widget">
+                                    <ul>
+                                        {% for cat in tags %}
+                                        <li><a href="/{{request.LANGUAGE_CODE}}/blog?q={{cat.name}}">{{cat.name}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div><!-- end link-widget -->
+                            </div><!-- end widget -->
 
 
-  <script src="/static/js/jquery-3.2.1.min.js"></script>
-  <script src="/static/js/bootstrap.min.js"></script>
-  <script src="/static/js/owl.carousel.min.js"></script>
-  <script src="/static/js/jquery.nicescroll.min.js"></script>
-  <script src="/static/js/isotope.pkgd.min.js"></script>
-  <script src="/static/js/imagesloaded.pkgd.min.js"></script>
-  <script src="/static/js/circle-progress.min.js"></script>
-  <script src="/static/js/main.js"></script>
+
+                            <div class="widget">
+                                <h2 class="widget-title">{% trans "Recent"%}</h2>      
+                                <hr class="line">
+                                <div class="blog-list-widget">
+                                    <div class="list-group">
+                                        {% for rec in recent%}
+                                        <a href="{% url 'blog_single' rec.slug %}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="w-100 justify-content-between">
+                                          <!--     <img src="{{rec.image.url}}" alt="data" class="img-fluid float-left">--> 
+                                                <h5 class="mb-1">{{rec.title}}</h5>
+                                                <small>{{rec.publishing_date.day}}.{{rec.publishing_date.month}}.{{rec.publishing_date.year}} ●</small> 
+                                                <small><i class="fa-regular fa-eye"  style="font-size:8px"> {{rec.read}}</i></small>
+                                            </div>
+                                        </a>
+                                        {% endfor %}
+                                        
+                                    </div>
+                                </div><!-- end blog-list -->
+                            </div><!-- end widget -->
+
+
+                        </div><!-- end sidebar -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section>
+        <br><br><br>
+        <footer class="footer">
+            <div class="container">
+               
+
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <br>
+                        <div class="footer-text text-center">
+                               
+                       
+                            <div class="social">
+                                <a href="https://www.linkedin.com/in/can-benli/" data-toggle="tooltip" data-placement="bottom" title="LinkedIn"><i class="fa fa-linkedin"  style="color: black;"></i></a>
+                                            <a href="https://github.com/canbenli" data-toggle="tooltip" data-placement="bottom" title="Github"><i class="fa fa-github"  style="color: black;"></i></a>
+                                            <a href="https://medium.com/@mcbenli80" data-toggle="tooltip" data-placement="bottom" title="Medium"><i class="fa fa-medium"  style="color: black;"></i></a>
+                                        </div>
+
+                            <hr class="invis">
+
+                            
+                        </div><!-- end footer-text -->
+                        <div class="copyright">Can Benli &copy; 2023</div>
+                    </div>
+                </div>
+            </div><!-- end container -->
+        </footer><!-- end footer -->
+
+        <div class="dmtop"></div>
+        
+    </div><!-- end wrapper -->
+
+    <!-- Core JavaScript
+    ================================================== -->
+    <script src="/static/js_js/jquery.min.js"></script>
+    <script src="/static/js_js/tether.min.js"></script>
+    <script src="/static/js_js/bootstrap.min.js"></script>
+    <script src="/static/js_js/custom.js"></script>
 
 </body>
 </html>
-
-
-<script>
-  // Butonlara tıklandığında ilgili div'i aç/kapat
-document.querySelectorAll('.toggle-button').forEach(button => {
-  const targetDiv = button.nextElementSibling;
-
-  button.addEventListener('click', () => {
-    // Hedef div'i aç/kapat
-    if (targetDiv.classList.contains('active')) {
-      targetDiv.classList.remove('active');
-      targetDiv.style.height = 0;
-    } else {
-      targetDiv.classList.add('active');
-      targetDiv.style.height = targetDiv.scrollHeight + 'px';
-    }
-  });
-});
-
-</script>
-
-
-<script>
-  const shareButton = document.getElementById('shareButton');
-  const shareOptions = document.getElementById('shareOptions');
-  const copyLink = document.getElementById('copyLink');
-  const copyMessage = document.getElementById('copyMessage');
-
-  shareButton.addEventListener('click', function () {
-      shareOptions.classList.toggle('show');
-  });
-
-  copyLink.addEventListener('click', function (event) {
-      event.preventDefault();
-      const linkToCopy = window.location.href;
-      copyToClipboard(linkToCopy);
-      showCopyMessage();
-  });
-
-  function copyToClipboard(text) {
-      const textarea = document.createElement('textarea');
-      textarea.value = text;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-  }
-
-  function showCopyMessage() {
-      copyMessage.style.display = 'block';
-      setTimeout(function () {
-          copyMessage.style.display = 'none';
-      }, 2000);
-  }
-</script>

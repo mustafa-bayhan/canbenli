@@ -72,18 +72,15 @@ class Post (models.Model):
 
 class Portfolio (models.Model):
     
-    image = models.ImageField(null=True,blank=True, upload_to='image/')
+    image = models.ImageField(null=True, upload_to='image/')
     name = models.CharField(null= True,blank=False, max_length=300)
-    firm= models.CharField(null= True,blank=False, max_length=300)
+    adres= models.CharField(null= True,blank=False, max_length=300)
     publishing_date =models.DateTimeField(verbose_name='Yayınlanma Tarihi', auto_now_add=True, null= True )
     date=models.CharField(null= True,blank=False, max_length=300)
-    content = models.TextField(max_length=500, verbose_name='explanation',blank=True, default="")
-    
-    
+    category=models.CharField(null= True, max_length=200, default="website")
     def __str__(self):
-        return self.name
+        return self.adres
 
-        
 class Comment(models.Model):
 
     post = models.ForeignKey(Post, on_delete= models.CASCADE, related_name='comments',null= True)
@@ -108,7 +105,6 @@ class Resume (models.Model):
     
     sayfa_resmi = models.ImageField(null=True, upload_to='image/')
     body=RichTextField(null= True, default = 'portfolio')
-    interest=RichTextField(null= True, default = '')
     cv_resmi = models.ImageField(null=True, upload_to='image/')
     cv = models.FileField(upload_to ='files/')
     publishing_date =models.DateTimeField(verbose_name='Yayınlanma Tarihi', auto_now_add=True, null= True )

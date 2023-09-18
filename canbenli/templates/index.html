@@ -1,468 +1,424 @@
 <!DOCTYPE html>
 {% load i18n %}
 <html lang="en">
-<head>
-<title>Can Benli | {% trans "Industrial Engineer | Data Scientist"%}</title>
-<meta charset="UTF-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="Can Benli, Digitization, data analysis, web programming, frontend, Html, Css, Javascript, Seo, Industrial Engineering, Dijitalleştirme, veri analizi, web programlama, önyüz, Html, Css, Javascript, Seo, Endüstri Mühendisliği" name="keywords">
-<meta content="Ambitious and motivated young industrial engineering student with a qualified knowledge and passion to learn more about engineering." name="description">
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<link rel="icon" href="/media/img/icon_logo.png">
 
-<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Site Metas -->
+    <title>Can Benli - {% trans "Industrial Engineer, Data Scientist"%}</title>
+    <meta content="Can Benli, Digitization, data analysis, web programming, frontend, Html, Css, Javascript, Seo, Industrial Engineering, Dijitalleştirme, veri analizi, web programlama, önyüz, Html, Css, Javascript, Seo, Endüstri Mühendisliği" name="keywords">
+    <meta content="Ambitious and motivated young industrial engineering student with a qualified knowledge and passion to learn more about engineering." name="description">
 
-<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
-<link rel="stylesheet" href="/static/css/owl.carousel.min.css" />
-<link rel="stylesheet" href="/static/css/animate.css" />
+    <link rel="icon" href="/media/img/logo.png" type="image/x-icon" />
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css_css/bootstrap.min.css" rel="stylesheet">
 
-<link rel="stylesheet" href="/static/css/style.css" />
+    <!-- FontAwesome Icons core CSS -->
+    <link href="/static/css_css/font-awesome.min.css" rel="stylesheet">
 
-<script src="https://kit.fontawesome.com/20583e3abd.js" crossorigin="anonymous"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XLNELQC0VC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Custom styles for this template -->
+    <link href="/static/css_css/style.css" rel="stylesheet">
 
-  gtag('config', 'G-XLNELQC0VC');
-</script>
+    <!-- Responsive styles for this template -->
+    <link href="/static/css_css/responsive.css" rel="stylesheet">
 
+    <!-- Colors for this template -->
+    <link href="/static/css_css/colors.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/20583e3abd.js" crossorigin="anonymous"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-XLNELQC0VC');
+      </script>
+
+
+<style>
+</style>
 </head>
 <body>
 
-<div id="preloder">
-<div class="loader"></div>
-</div>
-
-<div class="spacial-controls">
-<div class="search-switch"><img src="/media/img/search-icon.png"></div>
-<div class="nav-switch-warp">
-<div class="nav-switch">
-<div class="ns-bar"></div>
-</div>
-</div>
-</div>
-
-<div class="main-warp">
-
-<header class="header-section">
-<div class="header-close">
-<i class="fa fa-times"></i>
-</div>
-<div class="header-warp">
-<a href="/{{request.LANGUAGE_CODE}}" class="site-logo">
-<img src="/media/img/logo.png" alt="logo">
-</a>
-<img src="/media/img/menu-icon.png" alt="" class="menu-icon">
-<ul class="main-menu">
-<li class="active"><a href="/{{request.LANGUAGE_CODE}}">{% trans "Home"%}</a></li>
-<li><a href="/{{request.LANGUAGE_CODE}}/blog">{% trans "Blog"%}</a></li>
-<li><a href="/{{request.LANGUAGE_CODE}}/contact">{% trans "Contact"%}</a></li>
-<li><a href="{% url 'set-language' 'tr' %}"><img src="/media/img/tr.png" alt="tr" width="20px"></a><a href="{% url 'set-language' 'en' %}" style="padding-left:5px"><img src="/media/img/en.png" alt="en" width="20px"></a></li>
-
-</ul>
-<div class="social-links-warp">
-<div class="social-links">
-    <a href="https://www.kaggle.com/canbenli"><i class="fa-brands fa-kaggle"></i></a>
-    <a href="https://www.linkedin.com/in/can-benli/"><i class="fa-brands fa-linkedin"></i></a>
-    <a href=""><i class="fa fa-twitter"></i></a>
-    <a href="https://github.com/canbenli"><i class="fa-brands fa-github"></i></a>
-</div>
-<div class="social-text">{% trans "Socials"%}</div>
-</div>
-</div>
-<div class="copyright">
-Can Benli &copy; 2023
-</div>
-</header>
+    <!-- LOADER -->
+    <div id="preloader">
+      <img class="preloader" src="/media/img/loader.gif" alt="">
+      <div class="preloader"><div class="just" style="width: 152px;margin:auto;padding-top:170px; font-size:18px; font-weight:600">just keep pedaling</div></div>
+    </div><!-- end loader -->
+    <!-- END LOADER -->
 
 
-<div class="page-section home-page">
-    <div class='particle-network-animation'></div>
-    <div class="hero-slider owl-carousel">
-        <div class="slider-item d-flex align-items-center set-bg" data-setbg="" data-hash="slide-1">
-           
-            <div class="si-text-box">
-                <div class="image-pp"> 
-                    <img src="{{resume.cv_resmi.url}}" alt="pp">
-                </div><br>
-                <span>{% trans "Industrial Engineer, Data Scientist"%}</span>
-                <h2>Muhammed Can Benli</h2>
-                <p>{{resume.body|safe}}</p>
-                <p><a href="{{resume.cv.url}}" download style="color:#000"> {% trans "Resume"%} (EN) &nbsp;<i class="fa-solid fa-download"></i></a></p>
-            </div>
-            <div class="next-slide-show set-bg" data-setbg="{{resume.cv_resmi.url}}">
-                
-            </div>
-        </div>
-        <div class="slider-item d-flex align-items-center set-bg" data-setbg="" data-hash="slide-2">
-           
-            <div class="si-text-box">
-                
-                <p>{{resume.interest|safe}}</p>
-                <p><a href="{{resume.cv.url}}" download style="color:#000"> {% trans "Resume"%} (EN) &nbsp;<i class="fa-solid fa-download"></i></a></p>
-            </div>
-            <div class="next-slide-show set-bg" data-setbg="{{resume.cv_resmi.url}}">
-                
-            </div>
-        </div>
-    </div>
-</div>
+    <div id="wrapper">
+        
+        <header class="header_area">
+            <div class="main_header_area animated">
+              <div class="container">
+                <nav id="navigation1" class="navigation">
+                  <!-- Logo Area Start -->
+                  <div class="nav-header">
+                    <a class="nav-brand" href="/{{request.LANGUAGE_CODE}}">CAN BENLI</a>
+                    <div class="nav-toggle"></div>
+                  </div>
+                  <!-- Search panel Start -->
+                  <div class="nav-search">
+                    <div class="nav-search-button">
+                      <i class="nav-search-icon"></i>
+                    </div>
+                    <form>
+                      <div class="nav-search-inner">
+                        {% csrf_token %}
+                        <input type="search" name="search" placeholder=" {% trans "Search"%}">
+                        <button type="submit" style="visibility: hidden"></button> 
+
+                      </div>
+                    </form>
+                  </div>
+                  <!-- Main Menus Wrapper -->
+                  <div class="nav-menus-wrapper">
+                    <ul class="nav-menu align-to-right">
+                      <li><a href="/{{request.LANGUAGE_CODE}}">{% trans "Home"%}</a></li>
+                      <li><a href="/{{request.LANGUAGE_CODE}}/blog">{% trans "Blog"%}</a></li>
+                      <li><a href="/{{request.LANGUAGE_CODE}}/contact">{% trans "Contact"%}</a></li>
+                      <!--
+                      <li><a href="">Level 1</a>
+                        <ul class="nav-dropdown">
+                          <li><a href="">Header</a>
+                            <ul class="nav-dropdown">
+                              <li><a href="" target="_blank">Simple</a></li>
+                              <li><a href="" target="_blank">Two Menus</a></li>
+                            </ul>
+                      </li>-->
     
+                          <li><a href="">{% trans "Language"%}</a>
+                            <ul class="nav-dropdown">
+                              <li><a href="{% url 'set-language' 'en' %}" ><img src="/media/img/en.png" alt="en" width="25px"> English</a></li>
+                              <li><a href="{% url 'set-language' 'tr' %}" ><img src="/media/img/tr.png" alt="tr" width="25px"> Türkçe</a></li>     
+                            </ul>
+                      </li>
+                      
+                          </div>
+                        </div>
+                      </li>
+                      
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </header>
 
 
-</div>
+    <div id="wrapper">
+        
 
-<div class="search-model">
-<div class="h-100 d-flex align-items-center justify-content-center">
-    <div class="search-close-switch">x</div>
-        <form class="search-moderl-form">
-        {% csrf_token %}
-        <input name = "q2" type="text" id="search-input" placeholder="{% trans "Search" %}"><button type="submit"></button>
-        </form>
-    </div>
-</div>
+        <section class="section first-section">
+            <div class=" container-fluid">
+
+                <div class="masonry-blog clearfix">
+
+                    <div class="left-side">
+                        <div class="masonry-box post-media media600h">
+                             <img src="{%if left.0.image %} {{left.0.image.url}} {% endif%}" alt="" class="img-fluid">
+                             <div class="shadoweffect">
+                                <div class="shadow-desc">
+                                    <div class="blog-meta">
+                                        <span class="bg-aqua"><a href="/{{request.LANGUAGE_CODE}}/blog?q={{left.0.category.name}}" >{{left.0.category.name}}</a></span>
+                                        <h4><a href="/{{request.LANGUAGE_CODE}}/blog/{{left.0.slug}}">{{left.0.title}}</a></h4>
+                                        <small style="color:#fff;font-weight: 300px; ">{{left.0.publishing_date.day}}.{{left.0.publishing_date.month}}.{{left.0.publishing_date.year}}</small>
+                                        <small><a href="https://www.linkedin.com/in/can-benli/">Can Benli</a></small>
+                                    </div><!-- end meta -->
+                                </div><!-- end shadow-desc -->
+                            </div><!-- end shadow -->
+                        </div><!-- end post-media -->
+                    </div><!-- end left-side -->
+
+                    <div class="center-side">
+                        <div class="masonry-box post-media media350h ">
+                             <img src="{%if center.0.image %} {{center.0.image.url}} {% endif%}" class="img-fluid">
+                             <div class="shadoweffect">
+                                <div class="shadow-desc">
+                                    <div class="blog-meta">
+                                        <span class="bg-green"><a href="/{{request.LANGUAGE_CODE}}/blog?q={{center.0.category.name}}">{{center.0.category.name}}</a></span>
+                                        <h4><a href="/{{request.LANGUAGE_CODE}}/blog/{{center.0.slug}}" title="">{{center.0.title}}</a></h4>
+                                        <small style="color:#fff">{{center.0.publishing_date.day}}.{{center.0.publishing_date.month}}.{{center.0.publishing_date.year}}</small>
+                                        <small><a href="https://www.linkedin.com/in/can-benli/">Can Benli</a></small>
+                                    </div><!-- end meta -->
+                                </div><!-- end shadow-desc -->
+                            </div><!-- end shadow -->
+                        </div><!-- end post-media -->
+
+                        <div class="masonry-box small-box post-media media250h">
+                             <img src="{%if undercenter.0.image %} {{undercenter.0.image.url}} {% endif%}"  class="img-fluid">
+                             <div class="shadoweffect">
+                                <div class="shadow-desc">
+                                    <div class="blog-meta">
+                                        <span class="bg-green"><a href="/{{request.LANGUAGE_CODE}}/blog?q={{undercenter.0.category.name}}" >{{undercenter.0.category.name}}</a></span>
+                                        <h4><a href="/{{request.LANGUAGE_CODE}}/blog/{{undercenter.0.slug}}" >{{undercenter.0.title}}</a></h4>
+                                    </div><!-- end meta -->
+                                </div><!-- end shadow-desc -->
+                            </div><!-- end shadow -->
+                        </div><!-- end post-media -->
+
+                        <div class="masonry-box small-box post-media media250h">
+                          <img src="{%if undercenter2.0.image %} {{undercenter2.0.image.url}} {% endif%}"  class="img-fluid">
+                          <div class="shadoweffect">
+                             <div class="shadow-desc">
+                                 <div class="blog-meta">
+                                     <span class="bg-green"><a href="/{{request.LANGUAGE_CODE}}/blog?q={{undercenter2.0.category.name}}" >{{undercenter2.0.category.name}}</a></span>
+                                     <h4><a href="/{{request.LANGUAGE_CODE}}/post/{{undercenter2.0.slug}}" >{{undercenter2.0.title}}</a></h4>
+                                 </div><!-- end meta -->
+                             </div><!-- end shadow-desc -->
+                          </div><!-- end shadow -->
+                        </div><!-- end post-media -->
+
+                    </div><!-- end left-side -->
+                    <div class="right-side">
+                        <div class="masonry-box post-media media600h">
+                             <img src="{%if right.0.image %} {{right.0.image.url}} {% endif%}"  class="img-fluid">
+                             <div class="shadoweffect">
+                                <div class="shadow-desc">
+                                    <div class="blog-meta">
+                                        <span class="bg-aqua"><a href="/{{request.LANGUAGE_CODE}}/blog?q={{right.0.category.name}}" >{{right.0.category.name}}</a></span>
+                                        <h4><a href="/{{request.LANGUAGE_CODE}}/blog/{{right.0.slug}}" title="">{{right.0.title}}</a></h4>
+                                        <small style="color:#fff">{{right.0.publishing_date.day}}.{{right.0.publishing_date.month}}.{{right.0.publishing_date.year}}</small>
+                                        <small><a href="https://www.linkedin.com/in/can-benli/">Can Benli</a></small>
+                                    </div><!-- end meta -->
+                                </div><!-- end shadow-desc -->
+                            </div><!-- end shadow -->
+                        </div><!-- end post-media -->
+                    </div><!-- end left-side -->
+                   
+                </div><!-- end masonry -->
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                        <div class="section-title">
+                            <h3 class="color-aqua"><a href="/{{request.LANGUAGE_CODE}}/blog?q=machine-learning" class="lol">{% trans "Machine Learning"%}</a></h3>
+                            <hr class="line lol">
+                        </div><!-- end title -->
+
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 paddingsmobil">
+                                {% for ml in category1 %}
+                                <div class="blog-box">
+                                    <div class="post-media media250h">
+                                        <a href="{% url 'blog_single' ml.slug %}">
+                                            <img src="{{ml.image.url}}" alt="" class="img-fluid">
+                                            <div class="hovereffect">
+                                                <span></span>
+                                            </div><!-- end hover -->
+                                        </a>
+                                    </div><!-- end media -->
+                                    <div class="blog-meta big-meta">
+                                        <h4><a href="{% url 'blog_single' ml.slug %}" >{{ml.title}}</a></h4>
+                                        <p>{{ml.summary}}</p>
+                                        <small><a href="/{{request.LANGUAGE_CODE}}/blog?q={{ml.cat.name}}" >{{ml.category.name}}</a></small>
+                                        <small>{{ml.publishing_date.day}}.{{ml.publishing_date.month}}.{{ml.publishing_date.year}}</small>
+                                        <small><a href="https://www.linkedin.com/in/can-benli/">Can Benli</a></small>
+                                    </div><!-- end meta -->
+                                </div><!-- end blog-box --><br>
+                                {% endfor %}
+                                
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                    </div><!-- end col -->
+
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                        <div class="section-title ">
+                            <h3 class="color-pink "><a href="/{{request.LANGUAGE_CODE}}/blog?q=data-preprocessing" class="lol">{% trans "Data Preprocessing"%}</a></h3>
+                            <hr class="line lol">
+                        </div><!-- end title -->
+                        <div class="row">
+                            
+                          {% for pp in datapp %}
+
+                          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12  paddingsmobil paddings">
+                                <div class="blog-box ">
+                                    <div class="post-media media345h">
+                                        <a href="{% url 'blog_single' pp.slug %}">
+                                            <img src="{{pp.image.url}}" alt="" class="img-fluid">
+                                            <div class="hovereffect">
+                                                <span></span>
+                                            </div><!-- end hover -->
+                                        </a>
+                                    </div><!-- end media -->
+                                    <div class="blog-meta" style="margin-bottom: 20px;">
+                                        <h4><a href="{% url 'blog_single' pp.slug %}">{{pp.title}}</a></h4>
+                                        <small><a href="/{{request.LANGUAGE_CODE}}/blog?q={{pp.cat.name}}" >{{pp.category.name}}</a></small>
+                                        <small>{{pp.publishing_date.day}}.{{pp.publishing_date.month}}.{{pp.publishing_date.year}}</small>
+
+                                    </div><!-- end meta -->
+                                </div><!-- end blog-box -->
+
+                                
+                            </div><!-- end col -->
+
+                            
+                            {% endfor %}
 
 
-<script src="/static/js/jquery-3.2.1.min.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/owl.carousel.min.js"></script>
-<script src="/static/js/jquery.nicescroll.min.js"></script>
-<script src="/static/js/isotope.pkgd.min.js"></script>
-<script src="/static/js/imagesloaded.pkgd.min.js"></script>
-<script src="/static/js/circle-progress.min.js"></script>
-<script src="/static/js/main.js"></script>
+
+
+                        </div><!-- end row -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+
+                <br>
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="blog-list clearfix">
+                            <div class="section-title">
+                                <h3 class="color-green lol">{% trans "Most Viewed"%}</h3><hr class="line lol">
+                            </div><!-- end title -->
+                            {% for pop in popular %}
+                            <div class="blog-box row ">
+                                <div class="col-md-4 paddingsmobil">
+                                    <div class="post-media">
+                                        <a href="{% url 'blog_single' pop.slug %}">
+                                            <img src="{{pop.image.url}}" alt="data" class="img-fluid">
+                                            <div class="hovereffect"></div>
+                                        </a>
+                                    </div><!-- end media -->
+                                </div><!-- end col -->
+
+                                <div class="blog-meta big-meta col-md-8 paddingsmobil">
+                                    <h4><a href="{% url 'blog_single' pop.slug %}" >{{pop.title}}</a></h4>
+                                    <p>{{pop.summary}}</p>
+                                    <small><a href="/{{request.LANGUAGE_CODE}}/blog?q={{pop.cat.name}}" >{{pop.category.name}}</a></small>
+                                    <small>{{pop.publishing_date.day}}.{{pop.publishing_date.month}}.{{pop.publishing_date.year}}</small>
+                                    <small><a href="https://www.linkedin.com/in/can-benli/">Can Benli</a></small>
+                                    <small><i class="fa-regular fa-eye"  style="font-size:8px; font-weight:700"> {{pop.read}}</i></small>
+                                </div><!-- end meta -->
+                            </div><!-- end blog-box -->
+
+                            <hr class="invis">
+
+                            {% endfor %}
+
+                            
+                        </div><!-- end blog-list -->
+
+                        <hr class="invis">
+
+                        
+                    </div><!-- end col -->
+
+                    <div class="col-lg-3 paddingsmobil">
+                        <div class="sidebar">
+                           
+
+                          <div class="widget">
+                            <h2 class="widget-title">{% trans "Recent"%}</h2>      
+                            <hr class="line">
+                            <div class="blog-list-widget">
+                                <div class="list-group">
+                                    {% for rec in recent%}
+                                    <a href="{% url 'blog_single' rec.slug %}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="w-100 justify-content-between">
+                                      <!--     <img src="{{rec.image.url}}" alt="data" class="img-fluid float-left">--> 
+                                            <h5 class="mb-1">{{rec.title}}</h5>
+                                            <small>{{rec.publishing_date.day}}.{{rec.publishing_date.month}}.{{rec.publishing_date.year}} ●</small> 
+                                            <small><i class="fa-regular fa-eye"  style="font-size:8px"> {{rec.read}}</i></small>
+                                        </div>
+                                    </a>
+                                    {% endfor %}
+                                    
+                                </div>
+                            </div><!-- end blog-list -->
+                        </div><!-- end widget -->
+                      
+  
+                        <div class="widget">
+                            <h2 class="widget-title">{% trans "Tags"%}</h2>
+                            <hr class="line">
+                            <div class="link-widget">
+                                <ul>
+                                    {% for cat in tags %}
+                                    <li><a href="/{{request.LANGUAGE_CODE}}/blog?q={{cat.name}}">{{cat.name}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div><!-- end link-widget -->
+                        </div><!-- end widget -->
+  
+  
+  
+                       
+                        
+                        <div class="widget">
+                          <h2 class="widget-title">{% trans "Most Viewed"%}</h2>
+                          <hr class="line">
+                          <div class="blog-list-widget">
+                              <div class="list-group">
+                                  {% for pop in popular%}
+                                  <a href="{% url 'blog_single' pop.slug %}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                      <div class="w-100 justify-content-between">
+                                          
+                                          <h5 class="mb-1">{{pop.title}}</h5>
+                                          <small>{{pop.publishing_date.day}}.{{pop.publishing_date.month}}.{{pop.publishing_date.year}} ●</small> 
+                                          <small><i class="fa-regular fa-eye"  style="font-size:8px"> {{pop.read}}</i></small>
+                                      
+                                      </div>
+                                  </a>
+                                  {% endfor %}
+                                  
+                              </div>
+                          </div><!-- end blog-list -->
+                      </div><!-- end widget -->
+
+                        </div><!-- end sidebar -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+
+
+              
+            </div><!-- end container -->
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+               
+
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <br>
+                        <div class="footer-text text-center">
+                               
+                       
+                            <div class="social">
+                                <a href="https://www.linkedin.com/in/can-benli/" data-toggle="tooltip" data-placement="bottom" title="LinkedIn"><i class="fa fa-linkedin"  style="color: black;"></i></a>
+                                <a href="https://github.com/canbenli" data-toggle="tooltip" data-placement="bottom" title="Github"><i class="fa fa-github"  style="color: black;"></i></a>
+                                <a href="https://medium.com/@mcbenli80" data-toggle="tooltip" data-placement="bottom" title="Medium"><i class="fa fa-medium"  style="color: black;"></i></a>
+                            
+                            </div>
+
+                            <hr class="invis">
+
+                            
+                        </div><!-- end footer-text -->
+                        <div class="copyright">Can Benli &copy; 2023</div>
+                    </div>
+                </div>
+            </div><!-- end container -->
+        </footer><!-- end footer -->
+
+        <div class="dmtop"></div>
+        
+    </div><!-- end wrapper -->
+
+    <script src="/static/js_js/jquery.min.js"></script>
+    <script src="/static/js_js/tether.min.js"></script>
+    <script src="/static/js_js/bootstrap.min.js"></script>
+    <script src="/static/js_js/custom.js"></script>
+
 
 </body>
 </html>
-
-
-
-<script>
-    (function() {
-
-        var ParticleNetworkAnimation, PNA;
-        ParticleNetworkAnimation = PNA = function() {};
-    
-        PNA.prototype.init = function(element) {
-            this.$el = $(element);
-    
-            this.container = element;
-            this.canvas = document.createElement('canvas');
-            this.sizeCanvas();
-            this.container.appendChild(this.canvas);
-            this.ctx = this.canvas.getContext('2d');
-            this.particleNetwork = new ParticleNetwork(this);
-    
-            this.bindUiActions();
-    
-            return this;
-        };
-    
-        PNA.prototype.bindUiActions = function() {
-            $(window).on('resize', function() {
-                // this.sizeContainer();
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-                this.sizeCanvas();
-                this.particleNetwork.createParticles();
-            }.bind(this));
-        };
-    
-        PNA.prototype.sizeCanvas = function() {
-            this.canvas.width = this.container.offsetWidth;
-            this.canvas.height = this.container.offsetHeight;
-        };
-    
-        var Particle = function(parent, x, y) {
-            this.network = parent;
-            this.canvas = parent.canvas;
-            this.ctx = parent.ctx;
-            this.particleColor = returnRandomArrayitem(this.network.options.particleColors);
-            this.radius = getLimitedRandom(1.5, 2.5);
-            this.opacity = 0;
-            this.x = x || Math.random() * this.canvas.width;
-            this.y = y || Math.random() * this.canvas.height;
-            this.velocity = {
-                x: (Math.random() - 0.5) * parent.options.velocity,
-                y: (Math.random() - 0.5) * parent.options.velocity
-            };
-        };
-    
-        Particle.prototype.update = function() {
-            if (this.opacity < 1) {
-                this.opacity += 0.01;
-            } else {
-                this.opacity = 1;
-            }
-            // Change dir if outside map
-            if (this.x > this.canvas.width + 100 || this.x < -100) {
-                this.velocity.x = -this.velocity.x;
-            }
-            if (this.y > this.canvas.height + 100 || this.y < -100) {
-                this.velocity.y = -this.velocity.y;
-            }
-    
-            // Update position
-            this.x += this.velocity.x;
-            this.y += this.velocity.y;
-        };
-    
-        Particle.prototype.draw = function() {
-            // Draw particle
-            this.ctx.beginPath();
-            this.ctx.fillStyle = this.particleColor;
-            this.ctx.globalAlpha = this.opacity;
-            this.ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-            this.ctx.fill();
-        };
-    
-        var ParticleNetwork = function(parent) {
-            this.options = {
-                velocity: 1, // the higher the faster
-                density: 17000, // the lower the denser
-                netLineDistance: 180,
-                netLineColor: '#929292',
-                particleColors: ['#6D4E5C', '#000', '#FFC458' ] // ['#6D4E5C', '#aaa', '#FFC458' ]
-            };
-            this.canvas = parent.canvas;
-            this.ctx = parent.ctx;
-    
-            this.init();
-        };
-    
-        ParticleNetwork.prototype.init = function() {
-            // Create particle objects
-            this.createParticles(true);
-    
-            // Update canvas
-            this.animationFrame = requestAnimationFrame(this.update.bind(this));
-    
-            this.bindUiActions();
-        };
-    
-        ParticleNetwork.prototype.createParticles = function(isInitial) {
-            // Initialise / reset particles
-            var me = this;
-            this.particles = [];
-            var quantity = this.canvas.width * this.canvas.height / this.options.density;
-    
-            if (isInitial) {
-                var counter = 0;
-                clearInterval(this.createIntervalId);
-                this.createIntervalId = setInterval(function() {
-                    if (counter < quantity - 1) {
-                        // Create particle object
-                        this.particles.push(new Particle(this));
-                    }
-                    else {
-                        clearInterval(me.createIntervalId);
-                    }
-                    counter++;
-                }.bind(this), 250);
-            }
-            else {
-                // Create particle objects
-                for (var i = 0; i < quantity; i++) {
-                    this.particles.push(new Particle(this));
-                }
-            }
-        };
-    
-        ParticleNetwork.prototype.createInteractionParticle = function() {
-            // Add interaction particle
-            this.interactionParticle = new Particle(this);
-            this.interactionParticle.velocity = {
-                x: 0,
-                y: 0
-            };
-            this.particles.push(this.interactionParticle);
-            return this.interactionParticle;
-        };
-    
-        ParticleNetwork.prototype.removeInteractionParticle = function() {
-            // Find it
-            var index = this.particles.indexOf(this.interactionParticle);
-            if (index > -1) {
-                // Remove it
-                this.interactionParticle = undefined;
-                this.particles.splice(index, 1);
-            }
-        };
-    
-        ParticleNetwork.prototype.update = function() {
-            if (this.canvas) {
-    
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-                this.ctx.globalAlpha = 1;
-    
-                // Draw connections
-                for (var i = 0; i < this.particles.length; i++) {
-                    for (var j = this.particles.length - 1; j > i; j--) {
-                        var distance, p1 = this.particles[i], p2 = this.particles[j];
-    
-                        // check very simply if the two points are even a candidate for further measurements
-                        distance = Math.min(Math.abs(p1.x - p2.x), Math.abs(p1.y - p2.y));
-                        if (distance > this.options.netLineDistance) {
-                            continue;
-                        }
-    
-                        // the two points seem close enough, now let's measure precisely
-                        distance = Math.sqrt(
-                            Math.pow(p1.x - p2.x, 2) +
-                            Math.pow(p1.y - p2.y, 2)
-                        );
-                        if (distance > this.options.netLineDistance) {
-                            continue;
-                        }
-    
-                        this.ctx.beginPath();
-                        this.ctx.strokeStyle = this.options.netLineColor;
-                        this.ctx.globalAlpha = (this.options.netLineDistance - distance) / this.options.netLineDistance * p1.opacity * p2.opacity;
-                        this.ctx.lineWidth = 0.8;
-                        this.ctx.moveTo(p1.x, p1.y);
-                        this.ctx.lineTo(p2.x, p2.y);
-                        this.ctx.stroke();
-                    }
-                }
-    
-                // Draw particles
-                for (var i = 0; i < this.particles.length; i++) {
-                    this.particles[i].update();
-                    this.particles[i].draw();
-                }
-    
-                if (this.options.velocity !== 0) {
-                    this.animationFrame = requestAnimationFrame(this.update.bind(this));
-                }
-    
-            }
-            else {
-                cancelAnimationFrame(this.animationFrame);
-            }
-        };
-    
-        ParticleNetwork.prototype.bindUiActions = function() {
-            // Mouse / touch event handling
-            this.spawnQuantity = 3;
-            this.mouseIsDown = false;
-            this.touchIsMoving = false;
-    
-            this.onMouseMove = function(e) {
-                if (!this.interactionParticle) {
-                    this.createInteractionParticle();
-                }
-                this.interactionParticle.x = e.offsetX;
-                this.interactionParticle.y = e.offsetY;
-            }.bind(this);
-    
-            this.onTouchMove = function(e) {
-                e.preventDefault();
-                this.touchIsMoving = true;
-                if (!this.interactionParticle) {
-                    this.createInteractionParticle();
-                }
-                this.interactionParticle.x = e.changedTouches[0].clientX;
-                this.interactionParticle.y = e.changedTouches[0].clientY;
-            }.bind(this);
-    
-            this.onMouseDown = function(e) {
-                this.mouseIsDown = true;
-                var counter = 0;
-                var quantity = this.spawnQuantity;
-                var intervalId = setInterval(function() {
-                    if (this.mouseIsDown) {
-                        if (counter === 1) {
-                            quantity = 1;
-                        }
-                        for (var i = 0; i < quantity; i++) {
-                            if (this.interactionParticle) {
-                                this.particles.push(new Particle(this, this.interactionParticle.x, this.interactionParticle.y));
-                            }
-                        }
-                    }
-                    else {
-                        clearInterval(intervalId);
-                    }
-                    counter++;
-                }.bind(this), 50);
-            }.bind(this);
-    
-            this.onTouchStart = function(e) {
-                e.preventDefault();
-                setTimeout(function() {
-                    if (!this.touchIsMoving) {
-                        for (var i = 0; i < this.spawnQuantity; i++) {
-                            this.particles.push(new Particle(this, e.changedTouches[0].clientX, e.changedTouches[0].clientY));
-                        }
-                    }
-                }.bind(this), 200);
-            }.bind(this);
-    
-            this.onMouseUp = function(e) {
-                this.mouseIsDown = false;
-            }.bind(this);
-    
-            this.onMouseOut = function(e) {
-                this.removeInteractionParticle();
-            }.bind(this);
-    
-            this.onTouchEnd = function(e) {
-                e.preventDefault();
-                this.touchIsMoving = false;
-                this.removeInteractionParticle();
-            }.bind(this);
-    
-            this.canvas.addEventListener('mousemove', this.onMouseMove);
-            this.canvas.addEventListener('touchmove', this.onTouchMove);
-            this.canvas.addEventListener('mousedown', this.onMouseDown);
-            this.canvas.addEventListener('touchstart', this.onTouchStart);
-            this.canvas.addEventListener('mouseup', this.onMouseUp);
-            this.canvas.addEventListener('mouseout', this.onMouseOut);
-            this.canvas.addEventListener('touchend', this.onTouchEnd);
-        };
-    
-        ParticleNetwork.prototype.unbindUiActions = function() {
-            if (this.canvas) {
-                this.canvas.removeEventListener('mousemove', this.onMouseMove);
-                this.canvas.removeEventListener('touchmove', this.onTouchMove);
-                this.canvas.removeEventListener('mousedown', this.onMouseDown);
-                this.canvas.removeEventListener('touchstart', this.onTouchStart);
-                this.canvas.removeEventListener('mouseup', this.onMouseUp);
-                this.canvas.removeEventListener('mouseout', this.onMouseOut);
-                this.canvas.removeEventListener('touchend', this.onTouchEnd);
-            }
-        };
-    
-        var getLimitedRandom = function(min, max, roundToInteger) {
-            var number = Math.random() * (max - min) + min;
-            if (roundToInteger) {
-                number = Math.round(number);
-            }
-            return number;
-        };
-    
-        var returnRandomArrayitem = function(array) {
-            return array[Math.floor(Math.random()*array.length)];
-        };
-    
-    pna = new ParticleNetworkAnimation();	pna.init($('.particle-network-animation')[0]);
-    
-    }());
-</script>
-<script>
-  
-    var particles;
-    
-    particles = Particles.init({
-      selector: ".background",
-      color: ["#46067d", "#364b86", "#09c1ff"],
-      connectParticles: true,
-      speed: 3
-    });
-    
-    
-    
-    </script>
