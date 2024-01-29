@@ -74,8 +74,8 @@ def home(request):
     context['left']=posts.filter(Q(category__slug__iexact='machine-learning')).order_by('-publishing_date','-id').distinct()[0:2]
     context['right']=posts.filter(Q(category__slug__iexact='data-preprocessing')).order_by('-publishing_date','-id').distinct()[0:3]
     context['center']=posts.filter(Q(category__slug__iexact='machine-learning')).order_by('-read','-id').distinct()[0:1]
-    context['undercenter']=posts.filter(Q(category__slug__iexact='SQL')).order_by('-publishing_date','-id').distinct()[0:2]
-    context['undercenter2']=posts.filter(Q(category__slug__iexact='SQL')).order_by('-read','-id').distinct()[0:2]
+    context['undercenter']=posts.filter(Q(category__slug__iexact='CRM')).order_by('-publishing_date','-id').distinct()[0:2]
+    context['undercenter2']=posts.filter(Q(category__slug__iexact='CRM')).order_by('-read','-id').distinct()[0:2]
     context['category1']=posts.filter(Q(category__slug__iexact='machine-learning')).order_by('-read','-id').distinct()[0:2]
     context['tags'] = Category.objects.all()
     context['recent'] = Category.objects.all()
