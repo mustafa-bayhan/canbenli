@@ -13,7 +13,7 @@
     <title>{{post11.title}} | Can Benli </title>
     <meta content="Can Benli, Digitization, data analysis, web programming, frontend, Html, Css, Javascript, Seo, Industrial Engineering, Dijitalleştirme, veri analizi, web programlama, önyüz, Html, Css, Javascript, Seo, Endüstri Mühendisliği" name="keywords">
     <meta content="Ambitious and motivated young industrial engineering student with a qualified knowledge and passion to learn more about engineering." name="description">
-
+    <meta property="og:image" content="{{post11.image.url}}" />
     <link rel="icon" href="/media/img/logo.png" type="image/x-icon" />
     
 
@@ -33,23 +33,19 @@
     <!-- Colors for this template -->
     <link href="/static/css_css/colors.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/20583e3abd.js" crossorigin="anonymous"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-      
-        gtag('config', 'G-XLNELQC0VC');
-      </script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XLNELQC0VC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XLNELQC0VC');
+</script>
 </head>
 <body>
 
-    <!-- LOADER -->
-    <div id="preloader">
-        <img class="preloader" src="/media/img/loader.gif" alt="">
-        <div class="preloader"><div class="just" style="width: 152px;margin:auto;padding-top:170px; font-size:18px; font-weight:600">just keep pedaling</div></div>
-    </div><!-- end loader -->
-    <!-- END LOADER -->
-
+   
 
     <div id="wrapper">
         
@@ -110,7 +106,7 @@
             </div>
           </header>
           
-          <div class="page-title ">
+          <div class="page-title hideit ">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12col-sm-12 col-xs-12">
@@ -170,7 +166,9 @@
                             <div class="blog-title-area">
                                 <div class="tag-cloud-single">
                                     <span>{% trans "Tags"%}</span>
-                                    <small><a href="/{{request.LANGUAGE_CODE}}/blog?q={{post11.category.name}}" >{{post11.category.name}}</a></small>
+                                    {% for i in post11.other_categories.all %}
+                                    <small><a href="/{{request.LANGUAGE_CODE}}/blog?q={{i.name}}" >{{i.name}}</a></small>
+                                    {% endfor %}
                                 </div><!-- end meta -->
 
                                 <div class="post-sharing">
@@ -191,14 +189,13 @@
                             <div class="custombox authorbox clearfix">
                                 <h4 class="small-title">{% trans "About"%}</h4>
                                 <div class="row">
-                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                         <img src="{{resume.cv_resmi.url}}" alt="" class="img-fluid rounded-circle"> 
                                     </div><!-- end col -->
 
-                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                                         <h4><a href="#">M. Can Benli</a> <br><span style="font-size:15px"> {% trans "Industrial Engineer, Data Scientist"%}</span></h4>
                                         <p>{{resume.body|safe}}</p>
-                                        <p><a href="{{resume.cv.url}}" download style="color:#000"> {% trans "Resume"%} (EN) &nbsp;<i class="fa-solid fa-download"></i></a></p>
                                         <div class="topsocial">
                                             <a href="https://www.linkedin.com/in/can-benli/" data-toggle="tooltip" data-placement="bottom" title="LinkedIn"><i class="fa fa-linkedin"  style="color: black;"></i></a>
                                             <a href="https://github.com/canbenli" data-toggle="tooltip" data-placement="bottom" title="Github"><i class="fa fa-github"  style="color: black;"></i></a>

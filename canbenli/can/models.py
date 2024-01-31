@@ -33,7 +33,8 @@ class Post (models.Model):
     publishing_date =models.DateTimeField(verbose_name='Yayınlanma Tarihi', auto_now_add=True, null= True )
     read = models.IntegerField(default = 0)
     category= models.ForeignKey(Category, null= True, blank=False, on_delete=models.CASCADE)
-    summary=models.CharField(null= True, max_length=200)
+    other_categories= models.ManyToManyField(Category, related_name = "Other_categories")
+    summary=models.CharField(null= True, max_length=220)
     completed=models.CharField(choices=CHOICES2,default='completed',max_length=200)
     author=models.ForeignKey(
         'auth.User', on_delete=models.CASCADE, null= True, blank=False,

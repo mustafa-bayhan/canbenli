@@ -59,9 +59,9 @@ def home(request):
         return redirect('/en')
     
     
-    query2=request.GET.get('q2')
+    query2=request.GET.get('search')
     if query2:
-        return HttpResponseRedirect('blog?q2={}'.format(query2))
+        return HttpResponseRedirect('blog?search={}'.format(query2))
     
     context=dict()
     context['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-read','-id').distinct()[0:3]
@@ -73,7 +73,7 @@ def home(request):
     posts = Post.objects.filter(Q(completed__iexact='completed')).distinct()
     context['left']=posts.filter(Q(category__slug__iexact='machine-learning')).order_by('-publishing_date','-id').distinct()[0:2]
     context['right']=posts.filter(Q(category__slug__iexact='data-preprocessing')).order_by('-publishing_date','-id').distinct()[0:3]
-    context['center']=posts.filter(Q(category__slug__iexact='machine-learning')).order_by('-read','-id').distinct()[0:1]
+    context['center']=posts.filter(Q(category__slug__iexact='operationresearch')).order_by('-read','-id').distinct()[0:1]
     context['undercenter']=posts.filter(Q(category__slug__iexact='CRM')).order_by('-publishing_date','-id').distinct()[0:2]
     context['undercenter2']=posts.filter(Q(category__slug__iexact='CRM')).order_by('-read','-id').distinct()[0:2]
     context['category1']=posts.filter(Q(category__slug__iexact='machine-learning')).order_by('-read','-id').distinct()[0:2]
@@ -81,9 +81,9 @@ def home(request):
     context['recent'] = Category.objects.all()
     context['recent']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-publishing_date').distinct()[:4]
     context['popular'] = Category.objects.all()
-    context['popular']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-read').distinct()[:4]
-    context['datapp']=posts.filter(Q(category__slug__iexact='data-preprocessing')).order_by('-read','-id').distinct()[0:4]
-    
+    context['popular']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-read').distinct()[:5]
+    context['datapp'] = Category.objects.all()
+    context['datapp']=Post.objects.all().filter(Q(completed__iexact='completed')).order_by('-publishing_date').distinct()[:4]
 
     if len(resume)!=0:
         context['resume']=resume[0]
@@ -116,6 +116,14 @@ def contact(request):
     if request.LANGUAGE_CODE == 'en-us':
         return redirect('/en/contact')
     
+
+
+    query2=request.GET.get('search')
+    if query2:
+        return HttpResponseRedirect('blog?search={}'.format(query2))
+
+
+
     context9=dict()
     context9['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-read','-id').distinct()[0:4]
     context9['portfolioh']=Portfolio.objects.all().order_by('-publishing_date','-id').distinct()[0:6]
@@ -155,6 +163,11 @@ def about(request):
     if request.LANGUAGE_CODE == 'en-us':
         return redirect('/en/about')
     
+
+    query2=request.GET.get('search')
+    if query2:
+        return HttpResponseRedirect('blog?search={}'.format(query2))
+
     context1=dict()
     context1['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-read','-id').distinct()[0:4]
     context1['portfolioh']=Portfolio.objects.all().order_by('-publishing_date','-id').distinct()[0:6]
@@ -178,49 +191,66 @@ def blog(request):
     context2['portfolioh']=Portfolio.objects.all().order_by('-publishing_date','-id').distinct()[0:6]
     
     if query:
+        
         posts= posts.filter(
-             Q(category__name__exact=query)
-        ).distinct()
+             Q(category__name__exact=query) | Q(other_categories__name__exact=query)
+        ).distinct() 
         context2['temizle'] = ('temizle')
         
     if search:
         posts= posts.filter(
-            Q(title__icontains=search)|Q(category__name__icontains=search)|Q(body__icontains=search)
+            Q(title__icontains=search)|Q(category__name__icontains=search)|Q(body__icontains=search)|Q(other_categories__name__icontains=search)
         ).distinct()  
         context2['temizle'] = ('temizle') 
   
     paginator = Paginator(posts, 6) 
     context2['filter_count']=paginator.count
-    page_num = request.GET.get('page')
-    page=paginator.get_page(page_num)
-    
-    context2['count']=paginator.count
-    context2['page'] = page  
-    page_number=page.number
+    page = request.GET.get('page')
 
-    if page_number !=None:
-        fark=int(paginator.num_pages) - int(page_number)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        posts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        posts = paginator.page(paginator.num_pages)
+
+    context2['count']=paginator.num_pages
+    context2['posts'] = posts
+    context2['filter_count']=paginator.count
+    context2['post_list'] = Post.objects.distinct()
+    
+    page_num=page
+
+    if page_num !=None:
+        fark=int(paginator.num_pages) - int(page_num)
        
         if fark >= 2:
-            context2['last'] = ('last')
-            if fark > 2:
-                context2['last_three'] = ('last_three')
-                
+            context2['aftertwo'] = int(page_num) + 2
+        if int(page_num) >= 3:
+   
+            context2['beforetwo'] = int(page_num) - 2
             
-        if int(page_number) >= 3:
-            context2['first'] = ('first')
+        if int(page_num)>=4:
             
-            if int(page_number) > 3:
+            context2['first_true'] = ('first')
+            if int(page_num) > 4:
                 context2['three_dot'] = ('three_dot')
-            
+        
+        if fark >= 3:
+            context2['last_true'] = ('last')
+            if int(fark)>3:
+                context2['last_three_dot'] = ('last_three_dot')
     else:
 
-        
-        if paginator.num_pages-1 >= 2:
+        if int(paginator.num_pages) - 1 >= 2:
+            context2['aftertwo'] = 3
+        if paginator.num_pages-1 >= 3:
             context2['last_true'] = ('last')
-            if paginator.num_pages-1 >2:
-                
-                context2['last_three'] = ('last_three')
+            if paginator.num_pages-1 >3:
+                context2['last_three_dot'] = ('last_three_dot')
+
 
 
     context2['posts'] = posts
@@ -235,6 +265,12 @@ def blog(request):
 
 def blog_single(request, slug):
     
+   
+    query2=request.GET.get('search')
+    if query2:
+        return HttpResponseRedirect('blog?search={}'.format(query2))
+
+
     context3={}
     
     resume=Resume.objects.all().distinct()
@@ -246,9 +282,10 @@ def blog_single(request, slug):
         return redirect('/en/{}'.format(post11.get_absolute_url()))
     
     query2=request.POST.get('parent_id')
-
     
-   
+
+
+
     read = post11.read
     read += 1
     degıs = Post.objects.filter(slug=slug).update(read=read)
@@ -317,6 +354,14 @@ def blog_single(request, slug):
 def portfolio(request):
     if request.LANGUAGE_CODE == 'en-us':
         return redirect('/en/projects')
+
+
+    query2=request.GET.get('search')
+    if query2:
+        return HttpResponseRedirect('blog?search={}'.format(query2))
+
+
+
     context4=dict()
     context4['postsh']=Post.objects.filter(Q(completed__iexact='completed')).order_by('-read','-id').distinct()[0:4]
     context4['portfolioh']=Portfolio.objects.all().order_by('-publishing_date','-id').distinct()[0:6]

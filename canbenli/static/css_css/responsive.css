@@ -101,7 +101,10 @@
         margin: 1rem 0;
     }
     .blog-title-area h3 {
-        font-size: 34px;
+        font-size: 30px;
+
+        line-height: 40px;
+
     }
     .section-title {
         margin-top: 1rem;
